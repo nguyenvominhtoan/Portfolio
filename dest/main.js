@@ -95,6 +95,22 @@ tl.to("#scrollingText", {
   },
 });
 
+let tl3 = gsap.timeline();
+tl3.to("#scrollingText1", {
+  x: 1000,
+  duration: 200,
+  repeat: 1,
+  ease: "linear",
+});
+let t4 = gsap.timeline();
+t4.to("#scrollingText1", {
+  xPercent: -40,
+  scrollTrigger: {
+    trigger: "#scrollingText1",
+    scrub: 0.5,
+  },
+});
+
 //loading
 
 function initLoading() {

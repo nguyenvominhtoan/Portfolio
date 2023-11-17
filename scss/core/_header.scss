@@ -25,18 +25,8 @@
     align-items: center;
     justify-content: center;
     margin-left: 10px;
-
+    z-index: 9999;
     color: var(--text-cl);
-
-    span {
-      background: #00afab;
-      display: inline-block;
-      height: 20px;
-      margin-right: 6px;
-      position: relative;
-      white-space: nowrap;
-      width: 20px;
-    }
   }
   &__menu {
     display: flex;
@@ -46,32 +36,88 @@
   &__btn {
     display: flex;
     align-items: center;
+    width: 45px;
+    height: 45px;
+    // background: #0328ee;
+    border-radius: 1000px;
+    position: relative;
+    margin-left: 20px;
+    cursor: pointer;
+    z-index: 9999;
 
     span {
-      background: #00afab;
-      display: inline-block;
-      height: 20px;
-      margin-right: 6px;
-      position: relative;
-      white-space: nowrap;
-      width: 20px;
-      z-index: 9999;
+      width: 25px;
+      height: 2px;
+      left: 25%;
+      display: block;
+      content: "";
+      // width: 100%;
+      // height: 2px;
+      top: 50%;
+      background-color: var(--white-cl);
+      position: absolute;
+      @include transform(translateY(-50%));
+      @include transition(0.3s);
     }
-    p {
-      display: none;
-      color: var(--white-cl);
+
+    &::before,
+    &::after {
+      position: absolute;
+      left: 25%;
+      top: 30%;
+      display: block;
+      content: "";
+      width: 25px;
+      height: 2px;
+      background-color: var(--white-cl);
+      @include transform(rotate(0deg) translateY(0px));
+      @include transition(0.3s);
+    }
+
+    &::after {
+      position: absolute;
+      bottom: 0;
+      top: 65%;
+      left: 25%;
     }
 
     &.active {
       p {
         display: block;
         z-index: 9999;
+        margin-left: 40px;
+      }
+      &::before {
+        transform: (rotate(45deg) translate(6px, 6px));
+        @include transition(0.3s);
+      }
+
+      &::after {
+        transform: (rotate(-45deg) translate(6px, -6px));
+        @include transition(0.3s);
       }
 
       span {
-        opacity: 1;
+        opacity: 0;
         @include transition(0.3s);
       }
     }
+
+    p {
+      display: none;
+      color: var(--white-cl);
+    }
+
+    // &.active {
+    //   p {
+    //     display: block;
+    //     z-index: 9999;
+    //   }
+
+    //   span {
+    //     opacity: 1;
+    //     @include transition(0.3s);
+    //   }
+    // }
   }
 }
