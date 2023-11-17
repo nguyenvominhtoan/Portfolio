@@ -1,0 +1,34 @@
+{
+  "name": "financeflow",
+  "version": "1.0.0",
+  "main": "gruntfile.js",
+  "scripts": {
+    "dev": "vite"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.15",
+    "grunt": "^1.6.1",
+    "grunt-browser-sync": "^2.2.0",
+    "grunt-contrib-cssmin": "^5.0.0",
+    "grunt-contrib-jshint": "^3.2.0",
+    "grunt-contrib-sass": "^2.0.0",
+    "grunt-contrib-uglify": "^5.2.2",
+    "grunt-contrib-watch": "^1.1.0",
+    "load-grunt-tasks": "^5.1.0",
+    "postcss": "^8.4.28",
+    "tailwindcss": "^3.3.3",
+    "vite": "^4.4.9"
+  },
+  "dependencies": {
+    "aos": "^3.0.0-beta.6",
+    "flickity-responsive": "^2.0.6",
+    "gsap": "^3.12.2",
+    "imagesloaded": "^5.0.0",
+    "jquery": "^3.7.1",
+    "three": "^0.154.0"
+  },
+  "keywords": [],
+  "description": ""
+}

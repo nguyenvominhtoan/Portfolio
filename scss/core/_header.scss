@@ -1,0 +1,77 @@
+/* Header */
+.header {
+  background-color: transparent;
+  width: 100vw;
+  height: var(--height-header);
+  transition: var(--time-transition) background;
+  top: 0;
+  z-index: 200;
+  // position: fixed;
+  @include transition(0.3s);
+  font-size: 1.8rem;
+  font-family: m3;
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    @include xs {
+      flex-direction: initial;
+    }
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+
+    color: var(--text-cl);
+
+    span {
+      background: #00afab;
+      display: inline-block;
+      height: 20px;
+      margin-right: 6px;
+      position: relative;
+      white-space: nowrap;
+      width: 20px;
+    }
+  }
+  &__menu {
+    display: flex;
+    transform: translateX(-50%);
+    letter-spacing: 2px;
+  }
+  &__btn {
+    display: flex;
+    align-items: center;
+
+    span {
+      background: #00afab;
+      display: inline-block;
+      height: 20px;
+      margin-right: 6px;
+      position: relative;
+      white-space: nowrap;
+      width: 20px;
+      z-index: 9999;
+    }
+    p {
+      display: none;
+      color: var(--white-cl);
+    }
+
+    &.active {
+      p {
+        display: block;
+        z-index: 9999;
+      }
+
+      span {
+        opacity: 1;
+        @include transition(0.3s);
+      }
+    }
+  }
+}
