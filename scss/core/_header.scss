@@ -59,7 +59,9 @@
       @include transform(translateY(-50%));
       @include transition(0.3s);
     }
-
+    p {
+      font-family: m3;
+    }
     &::before,
     &::after {
       position: absolute;
