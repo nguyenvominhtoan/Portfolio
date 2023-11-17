@@ -168,28 +168,28 @@ initLoading();
 // console.log(1);
 
 //Slider Photo
-function sliderPhoto() {
-  var slider = document.querySelector(".other__project");
-  if (slider) {
-    var flkty = new Flickity(slider, {
-      // options
-      // cellAlign: "left",
-      // contain: true,
-      prevNextButtons: false,
-      pageDots: false,
-      // wrapAround: true,
-      // freeScoll: true,
-      // groupCells: 2,
-      // autoPlay: 1500,
-      on: {
-        ready: function () {
-          console.log("Flickity is ready");
-        },
-        change: function (index) {
-          console.log("Slide changed to");
-        },
-      },
-    });
-  }
-}
-sliderPhoto();
+// function sliderPhoto() {
+//   var slider = document.querySelector(".other__project");
+//   if (slider) {
+//     var flkty = new Flickity(slider, {
+//       // options
+//       // cellAlign: "left",
+//       // contain: true,
+//       prevNextButtons: false,
+//       pageDots: false,
+//       // wrapAround: true,
+//       // freeScoll: true,
+//       // groupCells: 2,
+//       // autoPlay: 1500,
+//       on: {
+//         ready: function () {
+//           console.log("Flickity is ready");
+//         },
+//         change: function (index) {
+//           console.log("Slide changed to");
+//         },
+//       },
+//     });
+//   }
+// }
+// sliderPhoto();
