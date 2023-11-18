@@ -6,15 +6,17 @@
   transition: var(--time-transition) background;
   top: 0;
   z-index: 200;
-  // position: fixed;
+  position: fixed;
   @include transition(0.3s);
   font-size: 1.8rem;
   font-family: m3;
+
   .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 100%;
+
     @include xs {
       flex-direction: initial;
     }
@@ -28,11 +30,13 @@
     z-index: 9999;
     color: var(--text-cl);
   }
+
   &__menu {
     display: flex;
     transform: translateX(-50%);
     letter-spacing: 2px;
   }
+
   &__btn {
     display: flex;
     align-items: center;
@@ -59,9 +63,11 @@
       @include transform(translateY(-50%));
       @include transition(0.3s);
     }
+
     p {
       font-family: m3;
     }
+
     &::before,
     &::after {
       position: absolute;
@@ -89,6 +95,7 @@
         z-index: 9999;
         margin-left: 40px;
       }
+
       &::before {
         transform: (rotate(45deg) translate(6px, 6px));
         @include transition(0.3s);

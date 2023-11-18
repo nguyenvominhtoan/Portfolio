@@ -11,19 +11,24 @@
   opacity: 0;
   pointer-events: none;
   padding-top: 50px;
+  z-index: 9998;
+
   @include xs {
     align-items: center;
     justify-content: center;
   }
+
   &__bottom {
     position: absolute;
     bottom: 20px;
     right: 20px;
+
     a {
       margin-right: 10px;
       color: var(--white-smoke);
     }
   }
+
   li {
     margin-bottom: 30px;
     list-style-type: none;
@@ -32,6 +37,7 @@
     top: 20%;
     position: relative;
     align-items: center;
+
     @include xs {
       top: initial;
       left: initial;
@@ -94,12 +100,15 @@
       &:hover {
         background-position: 0;
       }
+
       @include xs {
         font-size: 5rem;
       }
+
       @include xxs {
         font-size: 4rem;
       }
+
       @include xxxs {
         font-size: 3rem;
       }

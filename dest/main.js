@@ -25,21 +25,37 @@ $(window).on("mousemove", function (e) {
   })
 });
 
+//menu mobile
+const ham = document.querySelector(".header__btn");
+const menu = document.querySelector('.nav');
+const links = menu.querySelectorAll('li');
+
+var tl5 = gsap.timeline({ paused: true });
+
+tl5.to(menu, {
+  duration: 1,
+  opacity: 1,
+  height: '100vh', // change this to 100vh for full-height menu
+  ease: 'expo.inOut',
+})
+tl5.from(links, {
+  duration: 1,
+  opacity: 0,
+  y: 20,
+  stagger: 0.1,
+  ease: 'expo.inOut',
+}, "-=0.5");
+
+tl5.reverse();
+
+ham.addEventListener('click', () => {
+  ham.classList.toggle("active")
+  tl5.reversed(!tl5.reversed());
+});
 
 
-// menu mobile
-function menuMobile() {
-  const btnmenu = document.querySelector(".header__btn");
-  const nav = document.querySelector(".nav");
 
-  btnmenu.addEventListener("click", function () {
-    this.classList.toggle("active");
-    nav.classList.toggle("active");
-    document.body.classList.toggle("--disable-scroll");
-  });
-}
-menuMobile();
-
+//cursor view project
 var $cursor = $(".cursor"),
   $overlay = $(".project-overlay");
 function moveCircle(e) {
@@ -82,23 +98,8 @@ $($overlay).mouseout(function () {
   TweenLite.to($cursor, 0.3, { scale: 0.1, autoAlpha: 0 });
 });
 
+// title scroll trigger
 gsap.registerPlugin(ScrollTrigger);
-let tl2 = gsap.timeline();
-tl2.to("#scrollingText", {
-  x: 1000,
-  duration: 200,
-  repeat: 1,
-  ease: "linear",
-});
-let tl = gsap.timeline();
-tl.to("#scrollingText", {
-  xPercent: -40,
-  scrollTrigger: {
-    trigger: "#scrollingText",
-    scrub: 0.5,
-  },
-});
-
 let tl3 = gsap.timeline();
 tl3.to("#scrollingText1", {
   x: 1000,
@@ -114,6 +115,11 @@ t4.to("#scrollingText1", {
     scrub: 0.5,
   },
 });
+
+//scroll animation text
+
+
+
 
 //loading
 
@@ -154,46 +160,4 @@ function hideLoading() {
 }
 initLoading();
 
-function hideLoading() {
-  const loading = document.querySelector(".loading"),
-    body = document.querySelector("body");
-  loading.classList.add("--hide");
-  body.classList.remove("--disable-scroll");
-}
-initLoading();
 
-//text parralax
-// $(".parallaxed").tilt({
-//   glare: true,
-//   maxGlare: 0.3,
-//   maxTilt: 7,
-//   speed: 750,
-// });
-// console.log(1);
-
-//Slider Photo
-// function sliderPhoto() {
-//   var slider = document.querySelector(".other__project");
-//   if (slider) {
-//     var flkty = new Flickity(slider, {
-//       // options
-//       // cellAlign: "left",
-//       // contain: true,
-//       prevNextButtons: false,
-//       pageDots: false,
-//       // wrapAround: true,
-//       // freeScoll: true,
-//       // groupCells: 2,
-//       // autoPlay: 1500,
-//       on: {
-//         ready: function () {
-//           console.log("Flickity is ready");
-//         },
-//         change: function (index) {
-//           console.log("Slide changed to");
-//         },
-//       },
-//     });
-//   }
-// }
-// sliderPhoto();
