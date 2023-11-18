@@ -1,27 +1,31 @@
 AOS.init();
-$(document).ready(function () {
-  // Mouse Cursor Animation
-  gsap.set(".cusor", { xPercent: -0, yPercent: -0 });
-  const cusor = document.querySelector(".cusor");
-  const pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
-  const mouse = { x: pos.x, y: pos.y };
-  const speed = 0.1;
 
-  const xSet = gsap.quickSetter(cusor, "x", "px");
-  const ySet = gsap.quickSetter(cusor, "y", "px");
+//custom mouse
+let cusor = $(".cusor");
+let cusorFollow = $(".cusorFollow");
+let scale = $(".scale");
 
-  window.addEventListener("mousemove", (e) => {
-    mouse.x = e.x;
-    mouse.y = e.y;
+$(window).on("mousemove", function (e) {
+  gsap.to(cusor, {
+    x: e.clientX - (cusor.width() / 2),
+    y: e.clientY - (cusor.height() / 2), // lay toa do y
+    duration: 0.2,
   });
-  gsap.ticker.add(() => {
-    const dt = 1.0 - Math.pow(1.0 - speed, gsap.ticker.deltaRatio());
-    pos.x += (mouse.x - pos.x) * dt;
-    pos.y += (mouse.y - pos.y) * dt;
-    xSet(pos.x);
-    ySet(pos.y);
+  gsap.to(cusorFollow, {
+    x: e.clientX - (cusorFollow.width() / 2),
+    y: e.clientY - (cusorFollow.height() / 2), // lay toa do y
+    duration: 0.4,
   });
+
+  scale.on("mouseenter", function () {
+    cusorFollow.addClass("active")
+  })
+  scale.on("mouseleave", function () {
+    cusorFollow.removeClass("active")
+  })
 });
+
+
 
 // menu mobile
 function menuMobile() {

@@ -9,12 +9,15 @@
   -moz-user-select: none;
   user-select: none;
 }
+
 @-ms-viewport {
   width: device-width;
 }
+
 html {
   font-size: 62.5%; // 1rem = 10px
 }
+
 body {
   width: 100%;
   max-width: var(--max-width-page);
@@ -27,7 +30,45 @@ body {
   background: var(--bg-cl);
   color: var(--text-cl);
   font-family: m1;
-  scrollbar-color: #00afab;
+  cursor: none;
+
+  .cusor {
+    width: 4px;
+    height: 4px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    background-color: #fff;
+    --duration: 0.4s;
+  }
+
+  .cusorFollow {
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    border: 1px solid white;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transition: var(--duration) width, var(--duratuon) height, var(--duratuon) background;
+    mix-blend-mode: difference;
+
+    &.active {
+      --size: 160px;
+      width: var(--size);
+      height: var(--size);
+      background: var(--white-cl);
+      transition: var(--duration) width, var(--duratuon) height, var(--duratuon) background;
+    }
+  }
+
+
+
   .grain {
     position: fixed;
     top: 0;
@@ -35,8 +76,9 @@ body {
     height: 100%;
     width: 100%;
     pointer-events: none;
-    z-index: 300;
+    z-index: -30;
     transform: translateZ(0);
+
 
     &:before {
       content: "";
@@ -63,41 +105,51 @@ body {
       0% {
         transform: translate3d(0, 9rem, 0);
       }
+
       10% {
         transform: translate3d(-1rem, -4rem, 0);
       }
+
       20% {
         transform: translate3d(-8rem, 2rem, 0);
       }
+
       30% {
         transform: translate3d(9rem, -9rem, 0);
       }
+
       40% {
         transform: translate3d(-2rem, 7rem, 0);
       }
+
       50% {
         transform: translate3d(-9rem, -4rem, 0);
       }
+
       60% {
         transform: translate3d(2rem, 6rem, 0);
       }
+
       70% {
         transform: translate3d(7rem, -8rem, 0);
       }
+
       80% {
         transform: translate3d(-9rem, 1rem, 0);
       }
+
       90% {
         transform: translate3d(6rem, -5rem, 0);
       }
+
       to {
         transform: translate3d(-7rem, 0, 0);
       }
     }
   }
-  a {
-    cursor: none;
-  }
+
+
+
   &.--disable-scroll {
     height: 100vh;
     overflow: hidden;
@@ -112,7 +164,5 @@ body {
     margin-left: auto;
     position: relative;
   }
-  main {
-    position: relative;
-  }
+
 }

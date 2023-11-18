@@ -1,427 +1,401 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0 , maximum-scale=1.0, user-scalable=0"
-    />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>ToanNguyen | Portfolio</title>
 
-    <meta name="title" content="Portfolio" />
-    <meta name="description" content="Portfolio" />
-    <meta name="keyword" content="Portfolio" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0 , maximum-scale=1.0, user-scalable=0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>ToanNguyen | Portfolio</title>
 
-    <link rel="canonical" href="#" />
-    <link rel="icon" href="favicon.ico" />
-    <!-- Meta Tag Facebook -->
-    <meta property="og:locale" content="en" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="Portfolio" />
-    <meta property="og:description" content="Portfolio" />
-    <meta property="og:url" content="Portfolio" />
-    <meta property="og:site_name" content="Portfolio" />
-    <meta property="og:image" content="" />
+  <meta name="title" content="Portfolio" />
+  <meta name="description" content="Portfolio" />
+  <meta name="keyword" content="Portfolio" />
 
-    <!-- Meta Tag Twitter -->
-    <meta name="twitter:card" content="Portfolio" />
-    <meta name="twitter:site" content="Portfolio" />
-    <meta name="twitter:title" content="Portfolio" />
-    <meta name="twitter:description" content="Portfolio" />
-    <meta name="twitter:image" content="Portfolio" />
+  <link rel="canonical" href="#" />
+  <link rel="icon" href="favicon.ico" />
+  <!-- Meta Tag Facebook -->
+  <meta property="og:locale" content="en" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Portfolio" />
+  <meta property="og:description" content="Portfolio" />
+  <meta property="og:url" content="Portfolio" />
+  <meta property="og:site_name" content="Portfolio" />
+  <meta property="og:image" content="" />
 
-    <link rel="stylesheet" href="dest/style.min.css" />
-    <link rel="stylesheet" href="dest/fonts.css" />
-    <link rel="stylesheet" href="dest/main.js" />
-    <link rel="stylesheet" href="css/libs/aos.css" />
-  </head>
-  <style>
-    .loading {
-      width: 100%;
-      height: 100%;
-      background-color: var(--bg-cl);
-      position: fixed;
-      z-index: 99999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      opacity: 1;
-      visibility: visible;
-      transition: 0.3s;
-    }
+  <!-- Meta Tag Twitter -->
+  <meta name="twitter:card" content="Portfolio" />
+  <meta name="twitter:site" content="Portfolio" />
+  <meta name="twitter:title" content="Portfolio" />
+  <meta name="twitter:description" content="Portfolio" />
+  <meta name="twitter:image" content="Portfolio" />
 
-    .loading .loading__inner {
-      width: 100%;
-      height: 20px;
-      background-color: var(--white-cl);
-      position: relative;
-      overflow: hidden;
-    }
+  <link rel="stylesheet" href="dest/style.min.css" />
+  <link rel="stylesheet" href="dest/fonts.css" />
+  <link rel="stylesheet" href="dest/main.js" />
+  <link rel="stylesheet" href="css/libs/aos.css" />
+</head>
+<style>
+  .loading {
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-cl);
+    position: fixed;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    opacity: 1;
+    visibility: visible;
+    transition: 0.3s;
+  }
 
-    .loading .loading__inner .loading__inner-progress {
-      width: 0%;
-      height: 100%;
-      position: absolute;
-      background-color: #00afab;
-    }
+  .loading .loading__inner {
+    width: 100%;
+    height: 20px;
+    background-color: var(--white-cl);
+    position: relative;
+    overflow: hidden;
+  }
 
-    .loading .loading__percent {
-      text-align: center;
-      color: #fff;
-      font-size: 40px;
-      margin-top: 16px;
-      font-family: m4;
-    }
-    .loading .loading__des {
-      position: absolute;
-      bottom: 25px;
-      font-size: 17px;
-      font-family: m2;
-    }
-    .loading .loading__name {
-      font-family: m1;
-      font-size: 8rem;
-      text-transform: uppercase;
-      margin-bottom: 5px;
-    }
-    .loading.--hide {
-      /* opacity: 0; */
-      visibility: hidden;
-      transition: 0.3s;
-      -webkit-transition: 0.3s;
-    }
-  </style>
-  <body class="homepage">
-    <!--Loading Page-->
-    <div class="loading">
-      <p class="loading__name">Nguyen Vo Minh Toan</p>
-      <span class="loading__percent">0%</span>
-      <p class="loading__des">Please wait, content is loading.</p>
-    </div>
-    <!--End Loading Page-->
+  .loading .loading__inner .loading__inner-progress {
+    width: 0%;
+    height: 100%;
+    position: absolute;
+    background-color: #00afab;
+  }
 
-    <!--Header-->
-    <header class="header">
-      <div class="container">
-        <a href="index.html" class="header__logo">
-          <!-- <p>\ToanNguyen</p> -->
-          <img srcset="images/logo.svg 2x" alt="" />
-        </a>
-        <div class="header__btn">
-          <span></span>
-          <p>Close</p>
+  .loading .loading__percent {
+    text-align: center;
+    color: #fff;
+    font-size: 40px;
+    margin-top: 16px;
+    font-family: m4;
+  }
+
+  .loading .loading__des {
+    position: absolute;
+    bottom: 25px;
+    font-size: 17px;
+    font-family: m2;
+  }
+
+  .loading .loading__name {
+    font-family: m1;
+    font-size: 8rem;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+
+  .loading.--hide {
+    /* opacity: 0; */
+    visibility: hidden;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+  }
+</style>
+
+<body class="homepage">
+  <div class="cusor"></div>
+  <div class="cusorFollow"></div>
+  <!--Loading Page-->
+  <div class="loading">
+    <p class="loading__name">Nguyen Vo Minh Toan</p>
+    <span class="loading__percent">0%</span>
+    <p class="loading__des">Please wait, content is loading.</p>
+  </div>
+  <!--End Loading Page-->
+
+  <!--Header-->
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="header__logo">
+        <!-- <p>\ToanNguyen</p> -->
+        <img srcset="images/logo.svg 2x" alt="" />
+      </a>
+      <div class="header__btn">
+        <span></span>
+        <p>Close</p>
+      </div>
+      <div class="nav" data-aos="slide-down" data-aos-duration="1000" data-aos-easing="linear"
+        data-aos-anchor="bottom-center">
+        <div class="nav__top">
+          <li>
+            <a href="index.html"><sub>01</sub> Home</a>
+          </li>
+          <li>
+            <a href="about.html"> <sub>02</sub> About</a>
+          </li>
+          <li>
+            <a href="about.html"><sub>03</sub> Project</a>
+          </li>
+          <li>
+            <a href="about.html"><sub>04</sub> Contact</a>
+          </li>
         </div>
-        <div
-          class="nav"
-          data-aos="slide-down"
-          data-aos-duration="1000"
-          data-aos-easing="linear"
-          data-aos-anchor="bottom-center"
-        >
-          <div class="nav__top">
-            <li>
-              <a href="index.html"><sub>01</sub> Home</a>
-            </li>
-            <li>
-              <a href="about.html"> <sub>02</sub> About</a>
-            </li>
-            <li>
-              <a href="about.html"><sub>03</sub> Project</a>
-            </li>
-            <li>
-              <a href="about.html"><sub>04</sub> Contact</a>
-            </li>
+        <div class="nav__bottom">
+          <a href="#" class="ig">Instagram</a>
+          <a href="#" class="be">Behance</a>
+          <a href="#" class="brib">Dribble</a>
+          <a href="#" class="link">Linkedin</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!--End Header-->
+  <main>
+
+    <div class="grain"></div>
+    <!-- <canvas id="canvas"></canvas> -->
+    <!--Section Hero-->
+    <section class="hero">
+      <div class="container">
+        <div class="hero__textbox">
+          <h2 class="hero__textbox-first scale" data-aos="slide-up" data-aos-duration="1300">
+            NGUYEN
+          </h2>
+          <div class="hero__textbox-second" data-aos="slide-up" data-aos-duration="1400" data-aos-delay="50">
+            <p>
+              FRONTEND DEVELOPER FROM SAIGON
+            </p>
+            <h2 class="scale">VO</h2>
           </div>
-          <div class="nav__bottom">
-            <a href="#" class="ig">Instagram</a>
-            <a href="#" class="be">Behance</a>
-            <a href="#" class="brib">Dribble</a>
-            <a href="#" class="link">Linkedin</a>
+          <h1 class="hero__textbox-third scale" data-aos="slide-up" data-aos-duration="1500" data-aos-delay="110">
+            MINH TOAN
+          </h1>
+        </div>
+        <div class="hero__based" data-aos="slide-left" data-aos-duration="1000">
+          <a href="about.html" class="hero__textbox-about">Scroll down to more</a>
+          <div id="scroll-down">
+            <span class="arrow-down"> </span>
           </div>
         </div>
       </div>
-    </header>
-    <!--End Header-->
-    <main>
-      <div class="cusor"></div>
-      <div class="grain"></div>
-      <!-- <canvas id="canvas"></canvas> -->
-      <!--Section Hero-->
-      <section class="hero">
-        <div class="container">
-          <div class="hero__textbox">
-            <h2
-              class="hero__textbox-first"
-              data-aos="slide-up"
-              data-aos-duration="1300"
-            >
-              NGUYEN
-            </h2>
-            <div
-              class="hero__textbox-second"
-              data-aos="slide-up"
-              data-aos-duration="1400"
-              data-aos-delay="50"
-            >
-              <p>
-                CREATIVE FRONTEND DEVELOPER <br />
-                FROM SAIGON
-              </p>
-              <h2>VO</h2>
-            </div>
-            <h1
-              class="hero__textbox-third"
-              data-aos="slide-up"
-              data-aos-duration="1500"
-              data-aos-delay="110"
-            >
-              MINH TOAN
-            </h1>
-          </div>
-          <div
-            class="hero__based"
-            data-aos="slide-left"
-            data-aos-duration="1000"
-          >
-            <a href="about.html" class="hero__textbox-about"
-              >Scroll down to more</a
-            >
-            <div id="scroll-down">
-              <span class="arrow-down"> </span>
+    </section>
+    <!--End Section Hero-->
+    <section class="about">
+
+      <div class="container">
+        <div class="about__title">
+          <div class="about__title-global">
+            <div class="scroll">
+              <div class="left" id="scrollingText">
+                <div class="">Know more about me</div>
+                <div class="">Know more about me</div>
+                <div class="">Know more about me</div>
+                <div class="">Know more about me</div>
+                <div class="">Know more about me</div>
+                <div class="">Know more about me</div>
+                <div class="">Know more about me</div>
+              </div>
+              <div class="right" id="scrollingText">
+                <div class="">Know more about me</div>
+                <div class="">Know more about me</div>
+                <div class="">Know more about me</div>
+                <div class="">Know more about me</div>
+                <div class="">Know more about me</div>
+                <div class="">Know more about me</div>
+                <div class="">Know more about me</div>
+              </div>
             </div>
           </div>
         </div>
-      </section>
-      <!--End Section Hero-->
-      <section class="about">
-        <div class="container">
-          <div class="about__title">
-            <div class="about__title-global">
-              <div class="scroll">
-                <div class="left" id="scrollingText">
-                  <div class="">Know more about me</div>
-                  <div class="">Know more about me</div>
-                  <div class="">Know more about me</div>
-                  <div class="">Know more about me</div>
-                  <div class="">Know more about me</div>
-                  <div class="">Know more about me</div>
-                  <div class="">Know more about me</div>
-                </div>
-                <div class="right" id="scrollingText">
-                  <div class="">Know more about me</div>
-                  <div class="">Know more about me</div>
-                  <div class="">Know more about me</div>
-                  <div class="">Know more about me</div>
-                  <div class="">Know more about me</div>
-                  <div class="">Know more about me</div>
-                  <div class="">Know more about me</div>
-                </div>
+
+        <h2 class="about__title1">#About Me</h2>
+        <div class="about__textbox">
+          <div class="about__textbox-des">
+            <p class="scale">
+              Hey! I'm Toan Nguyen, twenty-one years old a front-end
+              developer. Currently based in Saigon.
+            </p>
+            <div class="social">
+              <a class="--after" href="https://www.linkedin.com/in/toan-nguyen-89105a284/">Facebook</a>
+              <a class="--after" href="https://www.linkedin.com/in/toan-nguyen-89105a284/">Linkedin</a>
+              <a class="--after" href="https://www.linkedin.com/in/toan-nguyen-89105a284/">Instagram</a>
+            </div>
+            <div class="list">
+              <div class="list__item">
+                <h3 class="list__item-title"><sub>01</sub> Interaction</h3>
+                <p class="list__item-des">
+                  A pleasant experience for your users goes through the
+                  animations and interactions of your project, I spend time to
+                  imagine and design them to ensure a smooth and remarkable
+                  navigation.
+                </p>
+              </div>
+              <div class="list__item">
+                <h3 class="list__item-title"><sub>02</sub> Performance</h3>
+                <p class="list__item-des">
+                  On the web, every second counts, I pay particular attention
+                  to the performance of your project by respecting the best
+                  practices of every tool I use.
+                </p>
+              </div>
+              <div class="list__item">
+                <h3 class="list__item-title"><sub>03</sub> Team Work</h3>
+                <p class="list__item-des">
+                  I develop your new website by listening to your needs and
+                  desires and by giving you my point of view in order to get
+                  the best for your project.
+                </p>
               </div>
             </div>
           </div>
-
-          <h2 class="about__title1">#About Me</h2>
-          <div class="about__textbox">
-            <div class="about__textbox-des">
-              <p>
-                Hey! I'm Toan Nguyen, twenty-one years old a front-end
-                developer. Currently based in Saigon.
-              </p>
-              <div class="social">
-                <a
-                  class="--after"
-                  href="https://www.linkedin.com/in/toan-nguyen-89105a284/"
-                  >Facebook</a
-                >
-                <a
-                  class="--after"
-                  href="https://www.linkedin.com/in/toan-nguyen-89105a284/"
-                  >Linkedin</a
-                >
-                <a
-                  class="--after"
-                  href="https://www.linkedin.com/in/toan-nguyen-89105a284/"
-                  >Instagram</a
-                >
-              </div>
-              <div class="list">
-                <div class="list__item">
-                  <h3 class="list__item-title"><sub>01</sub> Interaction</h3>
-                  <p class="list__item-des">
-                    A pleasant experience for your users goes through the
-                    animations and interactions of your project, I spend time to
-                    imagine and design them to ensure a smooth and remarkable
-                    navigation.
-                  </p>
-                </div>
-                <div class="list__item">
-                  <h3 class="list__item-title"><sub>02</sub> Performance</h3>
-                  <p class="list__item-des">
-                    On the web, every second counts, I pay particular attention
-                    to the performance of your project by respecting the best
-                    practices of every tool I use.
-                  </p>
-                </div>
-                <div class="list__item">
-                  <h3 class="list__item-title"><sub>03</sub> Team Work</h3>
-                  <p class="list__item-des">
-                    I develop your new website by listening to your needs and
-                    desires and by giving you my point of view in order to get
-                    the best for your project.
-                  </p>
-                </div>
-              </div>
+          <div class="img scale">
+            <img src="images/avt.jpeg" alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="skill" data-aos="slide-right" data-aos-duration="1200">
+      <div class="container">
+        <h2 class="skill__title scale">
+          ‟ Addiction is anything that drains life of meaning while making it
+          seem better. ”
+        </h2>
+        <div class="skill__list scale">
+          <p class="skill__list-item">FRONTEND</p>
+          <p class="skill__list-item">PIXEL PERFECT</p>
+          <p class="skill__list-item">RESPONSIVE</p>
+          <p class="skill__list-item">GSAP</p>
+          <p class="skill__list-item">TAILWIND CSS</p>
+          <p class="skill__list-item">JAVASCRIPT</p>
+          <p class="skill__list-item">SCSS</p>
+        </div>
+      </div>
+    </section>
+    <!-- End Section Project-->
+    <section class="project1">
+      <div class="container">
+        <div class="project1__title">
+          <h2>#Recent Project</h2>
+        </div>
+        <div class="project1__list">
+          <div class="project1__list-item">
+            <div class="title">
+              <p class="title__left">Luxestate</p>
+              <p class="title__right">Landing Page</p>
+            </div>
+            <a href="luxestate.html" class="img">
+              <img src="images/luxestate.png" alt="project img" />
+            </a>
+          </div>
+          <div class="project1__list-item">
+            <div class="title">
+              <p class="title__left">Wooder</p>
+              <p class="title__right">Landing Page</p>
+            </div>
+            <a href="wooder.html" class="img">
+              <img src="images/wooder.png" alt="project img" />
+            </a>
+          </div>
+          <div class="project1__list-item">
+            <div class="title">
+              <p class="title__left">FianceFlow</p>
+              <p class="title__right">Landing Page</p>
+            </div>
+            <a href="financeflow.html" class="img">
+              <img src="images/finance.png" alt="project img" />
+            </a>
+          </div>
+          <div class="project1__list-item">
+            <div class="title">
+              <p class="title__left">CFD Course</p>
+              <p class="title__right">ReacJS</p>
             </div>
             <div class="img">
-              <img src="images/avt.jpeg" alt="" />
+              <img src="images/course.png" alt="project img" />
             </div>
           </div>
-        </div>
-      </section>
-      <section class="skill" data-aos="slide-right" data-aos-duration="1200">
-        <div class="container">
-          <h2 class="skill__title">
-            ‟ Addiction is anything that drains life of meaning while making it
-            seem better. ”
-          </h2>
-          <div class="skill__list">
-            <p class="skill__list-item">FRONTEND</p>
-            <p class="skill__list-item">PIXEL PERFECT</p>
-            <p class="skill__list-item">RESPONSIVE</p>
-            <p class="skill__list-item">GSAP</p>
-            <p class="skill__list-item">TAILWIND CSS</p>
-            <p class="skill__list-item">JAVASCRIPT</p>
-            <p class="skill__list-item">SCSS</p>
-          </div>
-        </div>
-      </section>
-      <!-- End Section Project-->
-      <section class="project1">
-        <div class="container">
-          <div class="project1__title">
-            <h2>#Recent Project</h2>
-          </div>
-          <div class="project1__list">
-            <div class="project1__list-item">
-              <div class="title">
-                <p class="title__left">Luxestate</p>
-                <p class="title__right">Landing Page</p>
-              </div>
-              <a href="luxestate.html" class="img">
-                <img src="images/luxestate.png" alt="project img" />
-              </a>
-            </div>
-            <div class="project1__list-item">
-              <div class="title">
-                <p class="title__left">Wooder</p>
-                <p class="title__right">Landing Page</p>
-              </div>
-              <a href="wooder.html" class="img">
-                <img src="images/wooder.png" alt="project img" />
-              </a>
-            </div>
-            <div class="project1__list-item">
-              <div class="title">
-                <p class="title__left">FianceFlow</p>
-                <p class="title__right">Landing Page</p>
-              </div>
-              <a href="financeflow.html" class="img">
-                <img src="images/finance.png" alt="project img" />
-              </a>
-            </div>
-            <div class="project1__list-item">
-              <div class="title">
-                <p class="title__left">CFD Course</p>
-                <p class="title__right">ReacJS</p>
-              </div>
-              <div class="img">
-                <img src="images/course.png" alt="project img" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!--End Section Project-->
-
-      <section class="project">
-        <div class="cursor"></div>
-        <div class="project__title">
-          <div class="project__title-global">
-            <div class="scroll">
-              <div class="left" id="scrollingText1">
-                <div class="">Project</div>
-                <div class="">Project</div>
-                <div class="">Project</div>
-                <div class="">Project</div>
-                <div class="">Project</div>
-                <div class="">Project</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="wrapper">
-          <div class="project__list">
-            <a href="luxestate.html" class="project p-1">
-              <div class="project-title"><h1>Luxestate</h1></div>
-              <div class="project-categ">Landing Page</div>
-              <div class="project-overlay"></div>
-            </a>
-            <a href="wooder.html" class="project p-2">
-              <div class="project-title"><h1>Wooder</h1></div>
-              <div class="project-categ">Langding Page</div>
-              <div class="project-overlay"></div>
-            </a>
-            <a href="financeflow.html" class="project p-3">
-              <div class="project-title"><h1>FinanceFlow</h1></div>
-              <div class="project-categ">Landing Page</div>
-              <div class="project-overlay"></div>
-            </a>
-            <a href="luxestate.html" class="project p-4">
-              <div class="project-title"><h1>CFD Course</h1></div>
-              <div class="project-categ">ReactJS</div>
-              <div class="project-overlay"></div>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section class="contact" data-aos="slide-left" data-aos-duration="1200">
-        <div class="container">
-          <div class="contact__title"></div>
-          <!-- <h2 class="contact__title1">#Contact</h2> -->
-          <div class="contact__textbox">
-            <p class="contact__textbox-des">
-              <span>Let's create</span> somgthing great together
-            </p>
-            <p class="contact__textbox-content">
-              Contact me via the below channels or fill in our contact form and
-              we will be in touch with next steps.
-            </p>
-          </div>
-          <div class="contact__social">
-            <a href="https://www.linkedin.com/in/toan-nguyen-89105a284/"
-              >Drop me an email !</a
-            >
-          </div>
-        </div>
-      </section>
-      <!-- <div class="backtotop"></div> -->
-      <!--End Section Contact-->
-    </main>
-    <footer class="footer">
-      <div class="container">
-        <div class="footer__item">
-          <p class="footer__item-left">THANKS FOR YOU VISIT MY PORFOLIO!</p>
-          <p class="footer__item-right">
-            DEVELOPMENT BY <span>TOAN NGUYEN</span>
-          </p>
         </div>
       </div>
-    </footer>
-    <!--Script-->
-    <script type="text/javascript" src="dest/jsmain.min.js"></script>
-    <script type="text/javascript" src="dest/main.js"></script>
-  </body>
+    </section>
+    <!--End Section Project-->
+
+    <section class="project">
+      <div class="cursor"></div>
+      <div class="project__title scale">
+        <div class="project__title-global">
+          <div class="scroll">
+            <div class="left" id="scrollingText1">
+              <div class="">Project</div>
+              <div class="">Project</div>
+              <div class="">Project</div>
+              <div class="">Project</div>
+              <div class="">Project</div>
+              <div class="">Project</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="wrapper">
+        <div class="project__list">
+          <a href="luxestate.html" class="project p-1">
+            <div class="project-title">
+              <h1>Luxestate</h1>
+            </div>
+            <div class="project-categ">Landing Page</div>
+            <div class="project-overlay"></div>
+          </a>
+          <a href="wooder.html" class="project p-2">
+            <div class="project-title">
+              <h1>Wooder</h1>
+            </div>
+            <div class="project-categ">Langding Page</div>
+            <div class="project-overlay"></div>
+          </a>
+          <a href="financeflow.html" class="project p-3">
+            <div class="project-title">
+              <h1>FinanceFlow</h1>
+            </div>
+            <div class="project-categ">Landing Page</div>
+            <div class="project-overlay"></div>
+          </a>
+          <a href="luxestate.html" class="project p-4">
+            <div class="project-title">
+              <h1>CFD Course</h1>
+            </div>
+            <div class="project-categ">ReactJS</div>
+            <div class="project-overlay"></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" data-aos="slide-left" data-aos-duration="1200">
+      <div class="container">
+        <div class="contact__title"></div>
+        <!-- <h2 class="contact__title1">#Contact</h2> -->
+        <div class="contact__textbox">
+          <p class="contact__textbox-des scale">
+            <span>Let's create</span> somgthing great together
+          </p>
+          <p class="contact__textbox-content">
+            Contact me via the below channels or fill in our contact form and
+            we will be in touch with next steps.
+          </p>
+        </div>
+        <div class="contact__social">
+          <a href="https://www.linkedin.com/in/toan-nguyen-89105a284/">Drop me an email !</a>
+        </div>
+      </div>
+    </section>
+    <!-- <div class="backtotop"></div> -->
+    <!--End Section Contact-->
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__item">
+        <p class="footer__item-left">THANKS FOR YOU VISIT MY PORFOLIO!</p>
+        <p class="footer__item-right">
+          DEVELOPMENT BY <span class="scale">TOAN NGUYEN</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+  <!--Script-->
+  <script type="text/javascript" src="dest/jsmain.min.js"></script>
+  <script type="text/javascript" src="dest/main.js"></script>
+</body>
+
 </html>
