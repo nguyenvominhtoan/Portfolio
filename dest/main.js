@@ -117,12 +117,77 @@ t4.to("#scrollingText1", {
 });
 
 //scroll animation text
+// gsap.registerPlugin(SplitText);
 
+// const splitTypes = document.querySelectorAll(".reveal-type");
+
+// splitTypes.forEach((char, i) => {
+//   const bg = char.dataset.bgColor;
+//   const fg = char.dataset.fgColor;
+
+//   const text = new SplitText(char, { types: "chars" });
+
+//   gsap.fromTo(
+//     text.chars,
+//     {
+//       color: bg
+//     },
+//     {
+//       color: fg,
+//       duration: 0.3,
+//       stagger: 0.02,
+//       scrollTrigger: {
+//         trigger: char,
+//         start: "top 80%",
+//         end: "top 20%",
+//         scrub: true,
+//         markers: false,
+//         toggleActions: "play play reverse reverse"
+//       }
+//     }
+//   );
+// });
+
+// const lenis = new Lenis();
+
+// lenis.on("scroll", (e) => {
+//   console.log(e);
+// });
+
+// function raf(time) {
+//   lenis.raf(time);
+//   requestAnimationFrame(raf);
+// }
+
+// requestAnimationFrame(raf);
+
+const rows = document.querySelectorAll(".cb-tagreel-row");
+
+rows.forEach(function (e, i) {
+  let row_width = e.getBoundingClientRect().width;
+  let row_item_width = e.children[0].getBoundingClientRect().width;
+  let initial_offset = ((2 * row_item_width) / row_width) * 100 * -1;
+  let x_translation = initial_offset * -1;
+
+  gsap.set(e, {
+    xPercent: `${initial_offset}`
+  });
+
+  let duration = 5 * (i + 1);
+
+  var tl = gsap.timeline();
+
+  tl.to(e, {
+    ease: "none",
+    duration: duration,
+    xPercent: 0,
+    repeat: -1
+  });
+});
 
 
 
 //loading
-
 function initLoading() {
   let loadedCount = 0,
     imgs = document.querySelectorAll("img").length,
