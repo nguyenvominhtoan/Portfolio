@@ -1,9 +1,10 @@
 .footer {
-  padding: 50px 0px;
+  padding: 50px 0px 20px;
   display: flex;
   align-items: center;
   font-family: m3;
   font-size: 1.7rem;
+
   &__item {
     display: flex;
     justify-content: space-between;
@@ -12,6 +13,7 @@
     &-left {
       max-width: 400px;
     }
+
     &-right {
       span {
         &::after {

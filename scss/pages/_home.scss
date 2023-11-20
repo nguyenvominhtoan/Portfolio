@@ -10,9 +10,6 @@
   }
 
   &__textbox {
-    font-family: m4;
-
-
     &-first {
       font-size: 10rem;
       width: fit-content;
@@ -42,21 +39,41 @@
     }
 
     &-third {
-      font-size: 18rem;
-      width: fit-content;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
-      @include xs {
-        font-size: 10rem;
+      h1 {
+        font-size: 40rem;
+        width: fit-content;
         white-space: nowrap;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+        font-family: r;
+        height: fit-content;
+        // -webkit-text-stroke: 1px var(--text-cl);
+        // -webkit-text-fill-color: transparent;
+        margin-bottom: 15px;
+
+        @include sm {
+          font-size: 28rem;
+        }
       }
 
-      @include xxs {
-        font-size: 8.8rem;
+      p {
+        font-size: 1.8rem;
+        text-transform: uppercase;
+        letter-spacing: 4rem;
+        font-family: m3;
+
+        @include sm {
+          font-size: 1rem;
+        }
       }
     }
+
+
   }
-
-
 
   .circle {
     position: absolute;
@@ -66,11 +83,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    bottom: -25%;
+    bottom: -40%;
     right: -3%;
+
+    @include sm {
+      right: 3%;
+    }
 
     p {
       font-size: var(--font-size);
+
+    }
+
+    &__logo {
+      width: 10px;
+      height: 10px;
+      border-radius: 100%;
+      background-color: var(--text-cl);
     }
 
     &__text {
@@ -79,6 +108,7 @@
       height: 100%;
       animation: rotateText 10s linear infinite;
       text-transform: uppercase;
+
     }
 
     &__text p span {
@@ -105,7 +135,7 @@
 }
 
 .cb-tagreel-content {
-  padding: 200px 0;
+  padding: 250px 0 100px;
 }
 
 .cb-tagreel-items {
@@ -144,6 +174,8 @@
 }
 
 .about {
+  margin-bottom: 80px;
+
   .container {
     display: flex;
     flex-direction: column;
@@ -151,18 +183,9 @@
     gap: var(--gap);
   }
 
-
   &__title {
-    padding-top: 7rem;
-    padding-bottom: 50px;
-    overflow: hidden;
-    position: relative;
-    width: fit-content;
-    font-size: 7rem;
-    font-family: m5;
-    text-transform: uppercase;
+    margin-bottom: 50px;
   }
-
 
   &__textbox {
     display: grid;
@@ -185,15 +208,19 @@
         letter-spacing: 0.3px;
         font-family: m3;
 
+        @include sm {
+          font-size: 3rem;
+        }
+
         span {
           content: "";
           background: #d8ec20;
-          width: 186px;
+          width: 229px;
           display: block;
           height: 5px;
           position: absolute;
-          top: 34.2%;
-          left: 23%;
+          top: 86.2%;
+          left: 52%;
         }
       }
 
@@ -203,36 +230,55 @@
 
         p {
           margin-bottom: 30px;
+
+          @include sm {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+          }
         }
       }
 
     }
 
-    &-img {
+    &-other {
       grid-column: 8/13;
+
+
+      img {
+        filter: grayscale(100%);
+      }
     }
   }
 }
 
 .skill {
   .container {
-    padding: 200px 0px 100px;
-    margin-bottom: 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: var(--gap);
+
 
     @include xs {
       flex-direction: column;
     }
   }
 
-  &__title {
+  .flex {
+    padding: 100px 0px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--gap);
+
+  }
+
+  &__text {
     font-size: 3rem;
     letter-spacing: 0.5px;
     transform: rotate(270deg);
     max-width: 625px;
+
+    @include sm {
+      font-size: 2rem;
+    }
 
     @include xs {
       margin-bottom: 20px;
@@ -253,6 +299,11 @@
       font-size: 8.5rem;
       letter-spacing: 0.5px;
       text-transform: uppercase;
+      white-space: nowrap;
+
+      @include sm {
+        font-size: 7.5rem;
+      }
 
       @include xxs {
         font-size: 6.5rem;
@@ -270,66 +321,6 @@
     display: none;
   }
 
-  &__title {
-    padding-top: 7rem;
-    padding-bottom: 4rem;
-    overflow: hidden;
-    position: relative;
-    animation: marquee 8s linear infinite;
-
-    @include sm {
-      width: 100%;
-    }
-
-    @include xs {
-      display: none;
-    }
-
-    &-global {
-      width: 100%;
-
-      .scroll {
-        display: flex;
-        white-space: nowrap;
-        animation: slide-left 30s linear infinite;
-
-        @keyframes slide-left {
-          from {
-            left: 0;
-          }
-
-          to {
-            left: 100%;
-          }
-        }
-
-        .left,
-        .right {
-          display: flex;
-          -webkit-text-stroke: 1px var(--white-cl);
-          -webkit-text-fill-color: transparent;
-          position: relative;
-
-          div {
-            font-family: m4;
-            font-size: 16rem;
-            font-weight: 400;
-            line-height: 1;
-            margin-right: 30px;
-            text-transform: uppercase;
-
-            &:nth-child(3) {
-              -webkit-text-fill-color: var(--white-cl);
-            }
-
-            &:not(:hover) {
-              transition: 5s;
-            }
-          }
-        }
-      }
-    }
-  }
 
   .project-categ {
     font-weight: lighter;
@@ -431,7 +422,7 @@
       &::after {
         content: "";
         width: 100%;
-        background-color: var(--white-cl);
+        background-color: var(--text-cl);
         display: block;
         position: relative;
         bottom: -40px;
@@ -446,7 +437,7 @@
         margin-bottom: 20px;
 
         &__left {
-          color: var(--white-cl);
+          color: var(--text-cl);
           font-size: 2.5rem;
           font-weight: 400;
           line-height: 1.4;
@@ -457,7 +448,7 @@
         }
 
         &__right {
-          color: var(--white-smoke);
+          color: var(--text-cl);
           font-size: 2.5rem;
           font-weight: 400;
           line-height: 1.4;
@@ -487,15 +478,6 @@
 
 .contact {
   padding-bottom: 100px;
-  // background-color: var(--white-cl);
-  // color: var(--bg-cl);
-
-  &__title {
-    font-size: 10.5rem;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    width: fit-content;
-  }
 
   &__textbox {
     padding: 50px 0px;
@@ -533,7 +515,7 @@
           justify-content: center;
           align-items: center;
           flex-direction: column;
-          color: var(--white-cl);
+          color: var(--text-cl);
           width: fit-content;
           height: 40px;
           text-transform: uppercase;
@@ -549,6 +531,10 @@
         bottom: -60%;
         right: -2%;
         width: fit-content;
+
+        @include sm {
+          font-size: 7rem;
+        }
       }
     }
   }

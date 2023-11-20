@@ -29,13 +29,13 @@ $(window).on("mousemove", function (e) {
 const ham = document.querySelector(".header__btn");
 const menu = document.querySelector('.nav');
 const links = menu.querySelectorAll('li');
-
+const body = document.querySelector('body');
 var tl5 = gsap.timeline({ paused: true });
 
 tl5.to(menu, {
   duration: 1,
   opacity: 1,
-  height: '100vh', // change this to 100vh for full-height menu
+  height: '100vh',
   ease: 'expo.inOut',
 })
 tl5.from(links, {
@@ -51,6 +51,7 @@ tl5.reverse();
 ham.addEventListener('click', () => {
   ham.classList.toggle("active")
   tl5.reversed(!tl5.reversed());
+  body.classList.toggle("--disable-scroll")
 });
 
 
@@ -98,69 +99,9 @@ $($overlay).mouseout(function () {
   TweenLite.to($cursor, 0.3, { scale: 0.1, autoAlpha: 0 });
 });
 
-// title scroll trigger
-gsap.registerPlugin(ScrollTrigger);
-let tl3 = gsap.timeline();
-tl3.to("#scrollingText1", {
-  x: 1000,
-  duration: 200,
-  repeat: 1,
-  ease: "linear",
-});
-let t4 = gsap.timeline();
-t4.to("#scrollingText1", {
-  xPercent: -40,
-  scrollTrigger: {
-    trigger: "#scrollingText1",
-    scrub: 0.5,
-  },
-});
 
-//scroll animation text
-// gsap.registerPlugin(SplitText);
 
-// const splitTypes = document.querySelectorAll(".reveal-type");
-
-// splitTypes.forEach((char, i) => {
-//   const bg = char.dataset.bgColor;
-//   const fg = char.dataset.fgColor;
-
-//   const text = new SplitText(char, { types: "chars" });
-
-//   gsap.fromTo(
-//     text.chars,
-//     {
-//       color: bg
-//     },
-//     {
-//       color: fg,
-//       duration: 0.3,
-//       stagger: 0.02,
-//       scrollTrigger: {
-//         trigger: char,
-//         start: "top 80%",
-//         end: "top 20%",
-//         scrub: true,
-//         markers: false,
-//         toggleActions: "play play reverse reverse"
-//       }
-//     }
-//   );
-// });
-
-// const lenis = new Lenis();
-
-// lenis.on("scroll", (e) => {
-//   console.log(e);
-// });
-
-// function raf(time) {
-//   lenis.raf(time);
-//   requestAnimationFrame(raf);
-// }
-
-// requestAnimationFrame(raf);
-
+// scroll text animated
 const rows = document.querySelectorAll(".cb-tagreel-row");
 
 rows.forEach(function (e, i) {
@@ -228,10 +169,67 @@ initLoading();
 
 //scroll down animate
 const text = document.querySelector(".circle__text p");
-
 text.innerHTML = text.innerText
   .split("")
   .map(
     (char, i) => `<span style="transform:rotate(${i * 5.8}deg)">${char}</span>`
   )
   .join("");
+
+
+
+
+//scroll to section
+function scrollToSection() {
+  let menus = document.querySelectorAll(".header .header__menu a");
+  let heightHeader = document.querySelector(".header").offsetHeight;
+  let sections = [];
+
+  function removeActive() {
+    menus.forEach(function (menu_element, menu_index) {
+      menu_element.classList.remove("active");
+    });
+  }
+
+  menus.forEach(function (element, index) {
+    let className = element.getAttribute("href").replace("#", "");
+    let section = document.querySelector("." + className);
+    sections.push(section);
+
+    element.addEventListener("click", function (e) {
+      e.preventDefault();
+      window.scrollTo({
+        top: section.offsetTop - heightHeader,
+        behavior: "smooth",
+      });
+      removeActive();
+      element.classList.add("active");
+    });
+  });
+  window.addEventListener("scroll", function (e) {
+    e.preventDefault();
+    let positionScroll = window.pageYOffset;
+    sections.forEach(function (section, index) {
+      if (positionScroll > section.offsetTop) {
+        removeActive();
+        menus[index].classList.add("active");
+      } else {
+        menus[index].classList.remove("active");
+      }
+    });
+  });
+}
+scrollToSection();
+
+
+//scroll to top
+const btn = document.querySelector(".footer__item-right");
+function clickToTop() {
+  btn.addEventListener("click", function () {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+}
+clickToTop();

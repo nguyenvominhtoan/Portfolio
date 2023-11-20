@@ -53,21 +53,16 @@
   .loading .loading__inner {
     width: 100%;
     height: 20px;
-    background-color: var(--white-cl);
+    background-color: var(--text-cl);
     position: relative;
     overflow: hidden;
   }
 
-  .loading .loading__inner .loading__inner-progress {
-    width: 0%;
-    height: 100%;
-    position: absolute;
-    background-color: #00afab;
-  }
+
 
   .loading .loading__percent {
     text-align: center;
-    color: #fff;
+    color: #000;
     font-size: 40px;
     margin-top: 16px;
     font-family: m4;
@@ -85,6 +80,7 @@
     font-size: 8rem;
     text-transform: uppercase;
     margin-bottom: 5px;
+
   }
 
   .loading.--hide {
@@ -100,7 +96,7 @@
   <div class="cusorFollow"></div>
   <!--Loading Page-->
   <div class="loading">
-    <p class="loading__name">Nguyen Vo Minh Toan</p>
+    <!-- <p class="loading__name">Nguyen Vo Minh Toan</p> -->
     <span class="loading__percent">0%</span>
     <p class="loading__des">Please wait, content is loading.</p>
   </div>
@@ -109,13 +105,15 @@
   <!--Header-->
   <header class="header">
     <div class="container">
-      <a href="index.html" class="header__logo">
-        <!-- <p>\ToanNguyen</p> -->
-        <img srcset="images/logo.svg 2x" alt="" />
-      </a>
+      <ul class="header__menu">
+        <li><a href="#hero" class="active scale">Home</a></li>
+        <li><a href="#about" class="scale">About</a></li>
+        <li><a href="#project" class="scale">Work</a></li>
+        <li><a href="#contact" class="scale">Contact</a></li>
+      </ul>
       <div class="header__btn">
-        <span></span>
-        <p>Close</p>
+        <!-- <span></span>
+        <p>Close</p> -->
       </div>
       <div class="nav">
         <div class="nav__top">
@@ -144,28 +142,17 @@
   <!--End Header-->
   <main>
 
-    <div class="grain"></div>
-    <!-- <canvas id="canvas"></canvas> -->
     <!--Section Hero-->
     <section class="hero">
       <div class="container">
         <div class="hero__textbox">
-          <h2 class="hero__textbox-first scale" data-aos="slide-up" data-aos-duration="1300">
-            NGUYEN
-          </h2>
-          <div class="hero__textbox-second" data-aos="slide-up" data-aos-duration="1400" data-aos-delay="50">
-            <p>
-              FRONTEND DEVELOPER FROM SAIGON
-            </p>
-            <h2 class="scale">VO</h2>
+          <div class="hero__textbox-third">
+            <h1 class="scale">Toan Nguyen</h1>
+            <p>frontend developer</p>
           </div>
-          <h1 class="hero__textbox-third scale" data-aos="slide-up" data-aos-duration="1500" data-aos-delay="110">
-            MINH TOAN
-          </h1>
         </div>
-
         <div class="circle">
-          <!-- <p class="logo">Scoll down</p> -->
+          <div class="circle__logo"></div>
           <div class="circle__text">
             <p>Scroll Down Scroll Down Scroll Down Scroll Down Scroll Down</p>
           </div>
@@ -176,23 +163,7 @@
     <section class="cb-tagreel">
       <div class="cb-tagreel-content">
         <div class="cb-tagreel-items" role="marquee">
-          <!-- <div class="cb-tagreel-row">
-            <div class="cb-tagreel-item"><span>Strategy</span></div>
-            <div class="cb-tagreel-item -stroke"><span>Strategy</span></div>
-            <div class="cb-tagreel-item"><span>Strategy</span></div>
-            <div class="cb-tagreel-item -stroke"><span>Strategy</span></div>
-            <div class="cb-tagreel-item"><span>Strategy</span></div>
-          </div> -->
-          <div class="cb-tagreel-row">
-            <div class="cb-tagreel-item -stroke"><span>Design</span></div>
-            <div class="cb-tagreel-item"><span>Design</span></div>
-            <div class="cb-tagreel-item -stroke"><span>Design</span></div>
-            <div class="cb-tagreel-item"><span>Design</span></div>
-            <div class="cb-tagreel-item -stroke"><span>Design</span></div>
-            <div class="cb-tagreel-item"><span>Design</span></div>
-            <div class="cb-tagreel-item -stroke"><span>Design</span></div>
-          </div>
-          <div class="cb-tagreel-row">
+          <div class="cb-tagreel-row scale">
             <div class="cb-tagreel-item"><span>Development</span></div>
             <div class="cb-tagreel-item -stroke"><span>Development</span></div>
             <div class="cb-tagreel-item"><span>Development</span></div>
@@ -204,9 +175,9 @@
     </section>
 
 
-    <section class="about">
+    <section class="about --line">
       <div class="container">
-        <!-- <h2 class="about__title scale">Who i am ?</h2> -->
+        <div class="about__title title --left scale">About</div>
         <div class="about__textbox">
           <div class="about__textbox-des">
             <p class="hi">Xin Chao !</p>
@@ -226,26 +197,31 @@
                 dictum et magna vitae semper.</p>
             </div>
           </div>
-          <div class="about__textbox-img scale">
+          <div class="about__textbox-other scale">
             <img src="images/avt.jpeg" alt="" />
           </div>
         </div>
       </div>
     </section>
-    <section class="skill">
+    <section class="skill --line">
+
       <div class="container">
-        <h2 class="skill__title scale">
-          ‟ Addiction is anything that drains life of meaning while making it
-          seem better. ”
-        </h2>
-        <div class="skill__list scale">
-          <p class="skill__list-item">FRONTEND</p>
-          <p class="skill__list-item">PIXEL PERFECT</p>
-          <p class="skill__list-item">RESPONSIVE</p>
-          <p class="skill__list-item">GSAP</p>
-          <p class="skill__list-item">TAILWIND CSS</p>
-          <p class="skill__list-item">JAVASCRIPT</p>
-          <p class="skill__list-item">SCSS</p>
+        <div class="skill__title title  scale">Skill</div>
+        <div class="flex">
+          <h2 class="skill__text scale">
+            ‟ Addiction is anything that drains life of meaning while making it
+            seem better. ”
+          </h2>
+          <div class="skill__list scale ">
+            <p class="skill__list-item">FRONTEND</p>
+            <p class="skill__list-item">PIXEL PERFECT</p>
+            <p class="skill__list-item">RESPONSIVE</p>
+            <p class="skill__list-item">GSAP</p>
+            <p class="skill__list-item">JQuery</p>
+            <p class="skill__list-item">TAILWIND CSS</p>
+            <p class="skill__list-item">JAVASCRIPT</p>
+            <p class="skill__list-item">SCSS</p>
+          </div>
         </div>
       </div>
     </section>
@@ -297,59 +273,50 @@
     </section>
     <!--End Section Project-->
 
-    <section class="project">
+    <section class="project --line">
       <div class="cursor"></div>
-      <div class="project__title scale">
-        <div class="project__title-global">
-          <div class="scroll">
-            <div class="left" id="scrollingText1">
-              <div class="">Project</div>
-              <div class="">Project</div>
-              <div class="">Project</div>
-              <div class="">Project</div>
-              <div class="">Project</div>
-              <div class="">Project</div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="project__title title --left scale">Project</div>
       <div class="wrapper">
         <div class="project__list">
           <a href="https://luxestate.vercel.app" target="_blank" class="project p-1">
             <div class="project-title">
-              <h1>Luxestate</h1>
+              <h1> <sup>01</sup>
+                Luxestate</h1>
             </div>
-            <div class="project-categ">Landing Page</div>
+            <div class="project-categ">Frontend Developer / 3 - 2023</div>
             <div class="project-overlay"></div>
           </a>
           <a href="https://wooder-puce.vercel.app" target="_blank" class="project p-2">
             <div class="project-title">
-              <h1>Wooder</h1>
+              <h1> <sup>02</sup>
+                Wooder</h1>
             </div>
-            <div class="project-categ">Langding Page</div>
+            <div class="project-categ">Frontend Developer / 4 - 2023</div>
             <div class="project-overlay"></div>
           </a>
           <a href="https://financeflow-black.vercel.app" target="_blank" class="project p-3">
             <div class="project-title">
-              <h1>FinanceFlow</h1>
+              <h1> <sup>03</sup>
+                FianceFlow</h1>
             </div>
-            <div class="project-categ">Landing Page</div>
+            <div class="project-categ">Frontend Developer / 5 - 2023</div>
             <div class="project-overlay"></div>
           </a>
           <a href="https://cfd-coures-deploy.vercel.app" target="_blank" class="project p-4">
             <div class="project-title">
-              <h1>CFD Course</h1>
+              <h1> <sup>04</sup>
+                CFD Course</h1>
             </div>
-            <div class="project-categ">React JS</div>
+            <div class="project-categ">Frontend Developer / 7 - 2023</div>
             <div class="project-overlay"></div>
           </a>
         </div>
       </div>
     </section>
 
-    <section class="contact">
+    <section class="contact --line">
       <div class="container">
-        <div class="contact__title scale">Contact</div>
+        <div class="contact__title title scale">Contact</div>
         <div class="contact__textbox">
           <div class="contact__textbox-content">
             <p class="address">44 Le Lai, Tan Binh, Sai Gon</p>
@@ -366,15 +333,14 @@
         </div>
       </div>
     </section>
-    <!-- <div class="backtotop"></div> -->
     <!--End Section Contact-->
   </main>
   <footer class="footer">
     <div class="container">
       <div class="footer__item">
-        <p class="footer__item-left">THANKS FOR YOU VISIT MY PORFOLIO!</p>
-        <p class="footer__item-right">
-          DEVELOPMENT BY <span class="scale">TOAN NGUYEN</span>
+        <p class="footer__item-left">DEVELOPMENT BY <span class="scale">TOAN NGUYEN</span></p>
+        <p class="footer__item-right scale">
+          BACK TO TOP
         </p>
       </div>
     </div>

@@ -42,3 +42,11 @@
   font-style: normal;
   font-display: fallback;
 }
+@font-face {
+  font-family: "r";
+  src: url("../fonts/RightGrotesk-TightBold.woff2") format("woff2"),
+    url("../fonts/RightGrotesk-TightBold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}

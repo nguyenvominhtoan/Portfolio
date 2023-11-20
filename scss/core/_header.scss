@@ -6,15 +6,20 @@
   transition: var(--time-transition) background;
   top: 0;
   z-index: 200;
-  position: fixed;
+  // position: fixed;
   @include transition(0.3s);
   font-size: 1.8rem;
   font-family: m3;
 
+  &::after {
+    content: "";
+    width: 100%;
+    background-color: var(--text-cl);
+    height: 2.5px;
+    display: block;
+  }
+
   .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     height: 100%;
 
     @include xs {
@@ -32,9 +37,59 @@
   }
 
   &__menu {
+    align-items: center;
     display: flex;
-    transform: translateX(-50%);
-    letter-spacing: 2px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: min-content;
+    justify-content: space-between;
+    overflow: hidden;
+    padding: 40px;
+    position: relative;
+
+    a {
+      position: relative;
+      font-family: m4;
+      text-decoration: none;
+      font-size: 2.8rem;
+      color: var(--text-cl);
+      // margin: 0 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-transform: uppercase;
+      // margin-right: 100px;
+      @include transition(var(--duration));
+
+      // &::before {
+      //   content: "";
+      //   display: block;
+      //   width: 100%;
+      //   height: 1px;
+      //   background-color: var(--text-cl);
+      //   position: absolute;
+      //   bottom: 5px;
+      //   transform: translateX(-50%) scaleX(0);
+      //   @include transform(scaleX(0));
+      //   // transition: var(--duration) transform, var(--duration) background-color;
+      //   transition-duration: 0.3s;
+      //   @include transform-origin(right);
+      //   opacity: 0;
+      //   visibility: hidden;
+      // }
+      &:hover {
+        font-style: italic;
+      }
+
+      &.active,
+      &:hover {
+        &::before {
+          font-style: italic;
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
   }
 
   &__btn {
