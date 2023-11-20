@@ -10,6 +10,14 @@
   --bg-cl: #000;
   --text-cl: #fff;
   --white-smoke: rgba(247, 247, 247, 0.4);
+  // animated scroll nav-down
+  --radius: 5.5rem;
+  --frame-size: calc(var(--radius) / 3);
+  --d-outer: calc(var(--radius) * 2);
+  --d-inner: calc(var(--d-outer) - var(--frame-size));
+  --font-size: calc(var(--radius) / 10);
+
+
   // reponsive
   @include md {
     --gap: 28px;

@@ -226,3 +226,12 @@ function hideLoading() {
 initLoading();
 
 
+//scroll down animate
+const text = document.querySelector(".circle__text p");
+
+text.innerHTML = text.innerText
+  .split("")
+  .map(
+    (char, i) => `<span style="transform:rotate(${i * 5.8}deg)">${char}</span>`
+  )
+  .join("");
