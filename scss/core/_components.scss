@@ -47,14 +47,20 @@ a {
 }
 
 .title {
-  font-size: 10.5rem;
+  font-size: 4rem;
   letter-spacing: 0.5px;
   text-transform: uppercase;
   width: fit-content;
   position: relative;
+  top: -76px;
+
 
   @include sm {
     font-size: 7.5rem;
+  }
+
+  @include xs {
+    font-size: 5.5rem;
   }
 
   &.--left {
