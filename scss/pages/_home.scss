@@ -194,8 +194,14 @@
           display: block;
           height: 5px;
           position: absolute;
-          top: 41.2%;
+          top: 42.5%;
           left: 23%;
+
+          @include xxxs {
+            width: 140px;
+            top: 48.5%;
+            left: 56%;
+          }
         }
       }
 
@@ -298,12 +304,11 @@
   }
 
   &__list {
-    &:hover {
-      background-color: #000;
-      color: #fff;
-    }
 
-    &:nth-child(1) {
+
+
+
+    &:nth-child(2) {
       &::before {
         content: "";
         width: 100%;
@@ -329,9 +334,16 @@
       text-transform: uppercase;
       font-family: m5;
       padding: 0px 10px;
+      color: var(--text-cl);
+
+      &:hover {
+        background-color: #000;
+        color: #fff;
+      }
 
       .number {
-        font-size: 5rem;
+        font-size: 3rem;
+        font-family: m3;
 
         @include xxxs {
           font-size: 2rem;
@@ -343,6 +355,7 @@
         display: flex;
         align-items: center;
 
+
         @include xxxs {
           font-size: 3rem;
         }
@@ -351,6 +364,7 @@
 
       .view {
         font-size: 1.5rem;
+        font-family: m3;
 
         @include xxxs {
           font-size: 1rem;
@@ -395,6 +409,7 @@
         font-size: 1.7rem;
         white-space: nowrap;
         margin-top: 10px;
+        color: var(--text-color);
 
         @include xs {
           font-size: 1.3rem;
