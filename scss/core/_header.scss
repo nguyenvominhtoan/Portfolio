@@ -63,8 +63,14 @@
         font-size: 1.8rem;
       }
 
+      @include xxxs {
+        font-size: 1.3rem;
+      }
+
       &:hover {
         font-style: italic;
+
+
       }
 
       &.active,

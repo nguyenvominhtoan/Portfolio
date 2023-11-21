@@ -9,6 +9,11 @@
     font-size: 1.5rem;
   }
 
+  @include xxxs {
+    font-size: 1rem;
+    padding: 20px 0;
+  }
+
   &__item {
     display: flex;
     justify-content: space-between;

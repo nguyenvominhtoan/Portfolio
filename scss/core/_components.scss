@@ -63,6 +63,10 @@ a {
     font-size: 5.5rem;
   }
 
+  @include xxxs {
+    font-size: 3.9rem;
+  }
+
   &.--left {
     left: 60%;
   }
