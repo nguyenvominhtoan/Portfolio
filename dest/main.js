@@ -1,4 +1,49 @@
-AOS.init();
+//draw
+const canvas = document.querySelector("canvas");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+ctx.strokeStyle = "#BADA55";
+ctx.lineJoin = "round";
+ctx.lineCap = "round";
+ctx.lineWidth = 10;
+
+let isDrawing = false;
+let lastX = 0;
+let lastY = 0;
+let hue = 0;
+let direction = true;
+
+function draw(e) {
+  if (!isDrawing) return;
+  ctx.strokeStyle = `hsl(${hue},100%,50%)`
+  ctx.beginPath();
+  ctx.moveTo(lastX, lastY);
+  ctx.lineTo(e.offsetX, e.offsetY);
+  ctx.stroke();
+  [lastX, lastY] = [e.offsetX, e.offsetY];
+  hue++;
+
+  if (gue >= 360) {
+    hue = 0;
+  }
+}
+function clearCanvas() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+canvas.addEventListener("mousedown", (e) => {
+  isDrawing = true;
+  [lastX, lastY] = [e.offsetX, e.offsetY];
+});
+
+canvas.addEventListener("mousemove", draw);
+canvas.addEventListener("mouseup", () => {
+  isDrawing = false;
+  clearCanvas();
+})
+
 
 //custom mouse
 let cusor = $(".cusor");
@@ -25,81 +70,6 @@ $(window).on("mousemove", function (e) {
   })
 });
 
-//menu mobile
-const ham = document.querySelector(".header__btn");
-const menu = document.querySelector('.nav');
-const links = menu.querySelectorAll('li');
-const body = document.querySelector('body');
-var tl5 = gsap.timeline({ paused: true });
-
-tl5.to(menu, {
-  duration: 1,
-  opacity: 1,
-  height: '100vh',
-  ease: 'expo.inOut',
-})
-tl5.from(links, {
-  duration: 1,
-  opacity: 0,
-  y: 20,
-  stagger: 0.1,
-  ease: 'expo.inOut',
-}, "-=0.5");
-
-tl5.reverse();
-
-ham.addEventListener('click', () => {
-  ham.classList.toggle("active")
-  tl5.reversed(!tl5.reversed());
-  body.classList.toggle("--disable-scroll")
-});
-
-
-
-//cursor view project
-var $cursor = $(".cursor"),
-  $overlay = $(".project-overlay");
-function moveCircle(e) {
-  TweenLite.to($cursor, 0.5, {
-    css: {
-      left: e.pageX,
-      top: e.pageY,
-    },
-    delay: 0.03,
-  });
-}
-$(".p-1").hover(function () {
-  $(".cursor").css({
-    "background-image": "url(images/luxestate.png)",
-  });
-});
-$(".p-2").hover(function () {
-  $(".cursor").css({
-    "background-image": "url(images/wooder.png)",
-  });
-});
-$(".p-3").hover(function () {
-  $(".cursor").css({
-    "background-image": "url(images/finance.png)",
-  });
-});
-$(".p-4").hover(function () {
-  $(".cursor").css({
-    "background-image": "url(images/course.png)",
-  });
-});
-var flag = false;
-$($overlay).mousemove(function () {
-  flag = true;
-  TweenLite.to($cursor, 0.3, { scale: 1, autoAlpha: 1 });
-  $($overlay).on("mousemove", moveCircle);
-});
-$($overlay).mouseout(function () {
-  flag = false;
-  TweenLite.to($cursor, 0.3, { scale: 0.1, autoAlpha: 0 });
-});
-
-
 
 // scroll text animated
 const rows = document.querySelectorAll(".cb-tagreel-row");
@@ -108,13 +78,13 @@ rows.forEach(function (e, i) {
   let row_width = e.getBoundingClientRect().width;
   let row_item_width = e.children[0].getBoundingClientRect().width;
   let initial_offset = ((2 * row_item_width) / row_width) * 100 * -1;
-  let x_translation = initial_offset * -1;
+
 
   gsap.set(e, {
     xPercent: `${initial_offset}`
   });
 
-  let duration = 5 * (i + 1);
+  let duration = 7 * (i + 1);
 
   var tl = gsap.timeline();
 
@@ -127,109 +97,57 @@ rows.forEach(function (e, i) {
 });
 
 
-
 //loading
-function initLoading() {
-  let loadedCount = 0,
-    imgs = document.querySelectorAll("img").length,
-    container = document.querySelector("body");
-  let imgLoaded = imagesLoaded(container);
-  imgLoaded
-    .on("progress", (instance) => {
-      loadedCount++;
-      percent = Math.floor((loadedCount / imgs) * 100);
-      handleLoading(percent);
-    })
-    .on("always", (instance) => {
-      console.log("always");
-    })
-    .on("fail", (instance) => {
-      console.log("fail");
-    })
-    .on("done", (instance) => {
-      console.log("done");
-      hideLoading();
-    });
-}
-function handleLoading(percent) {
-  // const progress = document.querySelector(".loading__inner-progress"),
-  const textPerCenter = document.querySelector(".loading__percent");
-
-  // progress.style.width = `${percent}%`;
-  textPerCenter.innerHTML = `${percent}%`;
-}
-function hideLoading() {
-  const loading = document.querySelector(".loading"),
-    body = document.querySelector("body");
-  loading.classList.add("--hide");
-  body.classList.remove("--disable-scroll");
-}
-initLoading();
-
-
-//scroll down animate
-const text = document.querySelector(".circle__text p");
-text.innerHTML = text.innerText
-  .split("")
-  .map(
-    (char, i) => `<span style="transform:rotate(${i * 5.8}deg)">${char}</span>`
-  )
-  .join("");
-
-
-
-
-//scroll to section
-function scrollToSection() {
-  let menus = document.querySelectorAll(".header .header__menu a");
-  let heightHeader = document.querySelector(".header").offsetHeight;
-  let sections = [];
-
-  function removeActive() {
-    menus.forEach(function (menu_element, menu_index) {
-      menu_element.classList.remove("active");
-    });
+document.addEventListener("DOMContentLoaded", function () {
+  const counter3 = document.querySelector(".counter-3");
+  for (let i = 0; i < 2; i++) {
+    for (let j = 0; j < 10; j++) {
+      const div = document.createElement("div");
+      div.className = "num";
+      div.textContent = j;
+      counter3.appendChild(div);
+    }
   }
+  const finalDiv = document.createElement("div");
+  finalDiv.className = "num";
+  finalDiv.textContent = 0;
+  counter3.appendChild(finalDiv);
+  function animate(counter, duration, delay = 0) {
+    const numHeight = counter.querySelector(".num").clientHeight;
+    const totalDistance =
+      (counter.querySelectorAll(".num").length - 1) * numHeight;
+    gsap.to(counter, {
+      y: -totalDistance,
+      duration: duration,
+      delay: delay,
+      ease: "power2.inOut"
+    })
+  }
+  animate(counter3, 5);
+  animate(document.querySelector(".counter-2"), 6);
+  animate(document.querySelector(".counter-1"), 2, 4)
+});
+gsap.to(".loading-screen", {
+  opacity: 0,
+  duration: 0.5,
+  delay: 6,
+  ease: "power2.inOut",
+})
 
-  menus.forEach(function (element, index) {
-    let className = element.getAttribute("href").replace("#", "");
-    let section = document.querySelector("." + className);
-    sections.push(section);
+//clock
+function updateDigitalClock() {
+  const now = new Date();
+  const hours = now.getHours();
+  const minutes = now.getMinutes();
+  const seconds = now.getSeconds();
 
-    element.addEventListener("click", function (e) {
-      e.preventDefault();
-      window.scrollTo({
-        top: section.offsetTop - heightHeader,
-        behavior: "smooth",
-      });
-      removeActive();
-      element.classList.add("active");
-    });
-  });
-  window.addEventListener("scroll", function (e) {
-    e.preventDefault();
-    let positionScroll = window.pageYOffset;
-    sections.forEach(function (section, index) {
-      if (positionScroll > section.offsetTop) {
-        removeActive();
-        menus[index].classList.add("active");
-      } else {
-        menus[index].classList.remove("active");
-      }
-    });
-  });
+  const clockElement = document.getElementById('clock');
+  clockElement.textContent = `${formatTime(hours)}:${formatTime(minutes)}:${formatTime(seconds)}`;
 }
-scrollToSection();
 
-
-//scroll to top
-const btn = document.querySelector(".footer__item-right");
-function clickToTop() {
-  btn.addEventListener("click", function () {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  });
+function formatTime(time) {
+  return time < 10 ? `0${time}` : time;
 }
-clickToTop();
+
+setInterval(updateDigitalClock, 1000);
+updateDigitalClock(); 

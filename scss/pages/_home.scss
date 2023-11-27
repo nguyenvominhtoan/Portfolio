@@ -1,488 +1,187 @@
 .hero {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
 
-  .container {
-    display: flex;
-    justify-content: center;
-  }
-
-  &__textbox {
-
-
-    &-third {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
-      h1 {
-        font-size: 10rem;
-        width: fit-content;
-        white-space: nowrap;
-        text-transform: uppercase;
-        margin-bottom: 15px;
-        font-family: m4;
-        height: fit-content;
-
-        margin-bottom: 15px;
-
-        @include sm {
-          font-size: 28rem;
-        }
-
-        @include xs {
-          font-size: 21.9rem;
-        }
-
-        @include xxs {
-          font-size: 15.9rem;
-        }
-
-        @include xxxs {
-          font-size: 2.7rem;
-        }
-      }
-
-      p {
-        font-size: 1.8rem;
-        text-transform: uppercase;
-        letter-spacing: 4rem;
-        font-family: m3;
-
-        @include sm {
-          font-size: 1rem;
-        }
-
-        @include xs {
-          letter-spacing: 2.5rem;
-        }
-
-        @include xxs {
-          letter-spacing: 1.5rem;
-        }
-
-        @include xxxs {
-          letter-spacing: 1rem;
-        }
-      }
-    }
-
-
-  }
-
-  .circle {
+  canvas {
     position: absolute;
-    width: var(--d-outer);
-    height: var(--d-outer);
-    border-radius: 50%;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: -100px;
+  }
+}
+
+.nav__top,
+.nav__bottom {
+  font-size: 6rem;
+  white-space: nowrap;
+  font-family: m5;
+  z-index: 99;
+  width: fit-content;
+
+  &-left {
+    grid-column: 1/4;
+    color: var(--text-cl);
+    margin-left: 20px;
+  }
+
+  &-center {
+    grid-column: 9/10;
+    font-size: 2rem;
+    color: var(--text-cl);
+    position: relative;
+    bottom: -80%;
+    display: flex;
+
+    p {
+      margin-right: 20px;
+    }
+  }
+
+  &-right {
+    grid-column: 12/13;
+    color: var(--text-cl);
+    margin-right: 35px;
+  }
+}
+
+.nav__bottom {
+  position: absolute;
+  bottom: 0px;
+}
+
+.about {
+  padding: 150px 0;
+
+  &__wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    bottom: -180%;
-    right: -3%;
-
-    @include sm {
-      right: 3%;
-      bottom: -60%;
-    }
-
-    @include xs {
-      bottom: -80%;
-    }
-
-    @include xxs {
-      bottom: -122%;
-    }
-
-    @include xxxs {
-      bottom: -400%;
-    }
-
-    p {
-      font-size: var(--font-size);
-
-    }
-
-    &__logo {
-      width: 10px;
-      height: 10px;
-      border-radius: 100%;
-      background-color: var(--text-cl);
-    }
-
-    &__text {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      animation: rotateText 10s linear infinite;
-      text-transform: uppercase;
-
-    }
-
-    &__text p span {
-      position: absolute;
-      left: 50%;
-      font-size: 1.3em;
-      transform-origin: 0 var(--radius);
-    }
-  }
-
-  @keyframes rotateText {
-    0% {
-      transform: rotate(360deg);
-    }
-
-    100% {
-      transform: rotate(0deg);
-    }
-  }
-}
-
-
-
-.about {
-  padding: 150px 0px 100px;
-
-  &__title {
-    margin-bottom: 50px;
-  }
-
-  &__textbox {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: var(--gap);
-
-    @include sm {
-      display: flex;
-      flex-direction: column;
-      max-width: 650px;
-    }
-
-    @include xs {
-      max-width: 550px;
-    }
+    flex-direction: column;
+    height: 50vh;
 
     &-des {
-      grid-column: 1/7;
-
-      .hi {
-        font-size: 5.7rem;
-        letter-spacing: 20px;
-        white-space: nowrap;
-
-        @include xxxs {
-          font-size: 3rem;
-        }
-      }
-
-      .name {
-        margin: 40px 0px;
-        font-size: 4rem;
-        letter-spacing: 0.3px;
-        font-family: m3;
-
-        @include sm {
-          font-size: 3rem;
-        }
-
-        span {
-          content: "";
-          background: #d8ec20;
-          width: 184px;
-          display: block;
-          height: 5px;
-          position: absolute;
-          top: 42.5%;
-          left: 23%;
-
-          @include xxxs {
-            width: 140px;
-            top: 48.5%;
-            left: 56%;
-          }
-        }
-      }
-
-      .content {
-        font-size: 1.8rem;
-        letter-spacing: 0.3px;
-
-        p {
-          margin-bottom: 30px;
-
-          @include sm {
-            margin-bottom: 20px;
-            font-size: 1.5rem;
-            max-width: 430px;
-          }
-
-
-        }
-      }
-
-    }
-
-    &-other {
-      grid-column: 8/13;
-
-      @include sm {
-        display: none;
-      }
-
-      img {
-        filter: grayscale(100%);
-      }
-    }
-  }
-}
-
-.skill {
-  .container {
-    @include xs {
-      flex-direction: column;
-    }
-  }
-
-  .flex {
-    padding: 50px 0px;
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: var(--gap);
-
-    @include xs {
-      display: flex;
-      flex-direction: column;
-    }
-
-    @include xxxs {
-      padding: initial;
-    }
-  }
-
-
-  &__list {
-    grid-column: 6/12;
-
-    @include sm {
-      grid-column: 5/12;
-    }
-
-
-    &-item {
-      font-family: m4;
-      font-size: 8.5rem;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      white-space: nowrap;
-
-      @include sm {
-        font-size: 7.5rem;
-      }
-
-      @include xs {
-        font-size: 7rem;
-      }
-
-      @include xxs {
-        font-size: 6.5rem;
-      }
-
-      @include xxxs {
-        font-size: 4.2rem;
-      }
-    }
-  }
-}
-
-.project {
-  padding: 150px 0px 120px 0px;
-
-  @include xxxs {
-    padding: 150px 0px 70px 0px;
-  }
-
-  &__list {
-
-
-
-
-    &:nth-child(2) {
-      &::before {
-        content: "";
-        width: 100%;
-        height: 2.5px;
-        background-color: var(--text-cl);
-        display: block;
-      }
-    }
-
-    &::after {
-      content: "";
-      width: 100%;
-      height: 2.5px;
-      background-color: var(--text-cl);
-      display: block;
-    }
-
-    &-item {
-      height: 150px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      text-transform: uppercase;
+      font-size: 3rem;
+      margin-bottom: 50px;
+      width: 85%;
       font-family: m5;
-      padding: 0px 10px;
-      color: var(--text-cl);
-
-      &:hover {
-        background-color: #000;
-        color: #fff;
-      }
-
-      .number {
-        font-size: 3rem;
-        font-family: m3;
-
-        @include xxxs {
-          font-size: 2rem;
-        }
-      }
-
-      .name {
-        font-size: 8rem;
-        display: flex;
-        align-items: center;
-
-
-        @include xxxs {
-          font-size: 3rem;
-        }
-
-      }
-
-      .view {
-        font-size: 1.5rem;
-        font-family: m3;
-
-        @include xxxs {
-          font-size: 1rem;
-        }
-
-        p {
-          margin-bottom: 5px;
-        }
-      }
     }
   }
+
+
+}
+
+.cb-tagreel {
+  position: relative;
+}
+
+.cb-tagreel-content {
+  padding: 200px 0;
+}
+
+.cb-tagreel-items {
+  margin: -58px 0;
+  overflow: hidden;
+  cursor: default;
+}
+
+.cb-tagreel-row {
+  display: flex;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.cb-tagreel-item {
+  position: relative;
+  line-height: 100%;
+  font-size: 3.75vw;
+  padding: 58px 0;
+  text-transform: uppercase;
 }
 
 
+.cb-tagreel-item span {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+  margin-right: 30px;
+  font-family: m3;
+}
+
+.gallery {
+  width: 100%;
+  height: calc(100vh - 60px);
+  position: relative;
+}
+
+.img {
+  width: 75px;
+  height: 100px;
+  position: absolute;
+  overflow: hidden;
+  margin: 20px;
+
+  img {
+    @include mid;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.4s;
+
+    &:hover {
+      transform: translate(-50%, -50%) scale(1.5);
+    }
+  }
+}
 
 .contact {
-  padding: 100px 0px;
+  padding: 150px 0;
 
-  @include xxxs {
-    padding: 50px 0px;
+  p {
+    font-family: m5;
+    font-size: 7rem;
+    letter-spacing: 0.3px;
+    max-width: fit-content;
   }
 
-  &__textbox {
-    padding: 50px 0px;
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: var(--gap);
+  .social {
+    position: absolute;
+    right: 0;
+    display: flex;
+    top: 150%;
 
-    @include xxxs {
-      display: flex;
-      flex-direction: column;
-    }
+    a {
+      color: var(--white-cl);
+      font-size: 2rem;
+      margin-right: 30px;
+      @include transition(var(--duration));
+      max-width: fit-content;
 
-    @include xs {
-      padding: 20px 0px;
-    }
-
-    &-content {
-      grid-column: 1/3;
-
-      p {
-        font-size: 1.7rem;
-        white-space: nowrap;
-        margin-top: 10px;
-        color: var(--text-color);
-
-        @include xs {
-          font-size: 1.3rem;
-        }
+      &::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 1px;
+        background-color: var(--white-cl);
+        transform: translateX(-50%) scaleX(0);
+        @include transform(scaleX(0));
+        transition-duration: 0.3s;
+        @include transform-origin(right);
+        opacity: 0;
+        visibility: hidden;
       }
-    }
 
-    &-social {
-      grid-column: 5/12;
-
-      .list {
-        display: flex;
-        position: absolute;
-        right: 10%;
-        top: 50%;
-
-        @include xxxs {
-          position: initial;
-        }
-
-        a {
-          margin-right: 20px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          flex-direction: column;
-          color: var(--text-cl);
-          width: fit-content;
-          height: 40px;
-          text-transform: uppercase;
-          white-space: nowrap;
-          font-size: 1.5rem;
-
-          @include xs {
-            font-size: 1.3rem;
-          }
-
-          @include xs {
-            font-size: 1rem;
-          }
+      &:hover {
+        &::after {
+          @include transform(scaleX(1));
+          @include transform-origin(left);
+          opacity: 1;
+          visibility: visible;
         }
       }
 
-      .mail {
-        font-size: 9rem;
-        font-family: m5;
-        position: relative;
-        bottom: -60%;
-        right: -2%;
-        width: fit-content;
-
-        @include sm {
-          font-size: 7rem;
-        }
-
-        @include xs {
-          font-size: 5.3rem;
-        }
-
-        @include xxxs {
-          font-size: 3.5rem;
-        }
+      &:nth-child(3) {
+        margin-right: initial;
       }
     }
   }
-}
-
-.backtotop {
-  width: 30px;
-  height: 30px;
-  background-color: #00afab;
-  position: fixed;
-  position: absolute;
-  bottom: 30px;
-  right: 30px;
 }

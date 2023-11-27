@@ -42,43 +42,45 @@
     flex-direction: row;
     flex-wrap: nowrap;
     height: min-content;
-    justify-content: space-between;
+    // justify-content: space-between;
     overflow: hidden;
     padding: 40px;
     position: relative;
 
-    a {
-      position: relative;
-      font-family: m4;
-      text-decoration: none;
-      font-size: 2.8rem;
-      color: var(--text-cl);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-transform: uppercase;
-      @include transition(var(--duration));
+    &-text {
+      a {
+        position: relative;
+        font-family: m4;
+        text-decoration: none;
+        font-size: 2.8rem;
+        color: var(--text-cl);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-transform: uppercase;
+        @include transition(var(--duration));
 
-      @include xs {
-        font-size: 1.8rem;
-      }
+        @include xs {
+          font-size: 1.8rem;
+        }
 
-      @include xxxs {
-        font-size: 1.3rem;
-      }
+        @include xxxs {
+          font-size: 1.3rem;
+        }
 
-      &:hover {
-        font-style: italic;
+        // &:hover {
+        //   font-style: italic;
 
 
-      }
+        // }
 
-      &.active,
-      &:hover {
-        &::before {
-          font-style: italic;
-          opacity: 1;
-          visibility: visible;
+        &.active,
+        &:hover {
+          &::before {
+            font-style: italic;
+            opacity: 1;
+            visibility: visible;
+          }
         }
       }
     }

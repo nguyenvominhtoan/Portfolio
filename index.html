@@ -35,268 +35,152 @@
   <link rel="stylesheet" href="css/libs/aos.css" />
 </head>
 <style>
-  .loading {
+  .loading-screen {
     width: 100%;
     height: 100%;
     background-color: var(--bg-cl);
+    color: var(--white-cl);
     position: fixed;
-    z-index: 99999;
-    display: flex;
+    z-index: 999;
+    pointer-events: none;
+    /* display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     opacity: 1;
     visibility: visible;
     transition: 0.3s;
+  */
   }
 
-  .loading .loading__inner {
-    width: 100%;
-    height: 20px;
-    background-color: var(--text-cl);
+  .counter {
+    position: fixed;
+    left: 50px;
+    bottom: 50px;
+    display: flex;
+    height: 100px;
+    font-size: 100px;
+    line-height: 102px;
+    clip-path: polygon(0 0, 100% 0, 100% 100px, 0 100px);
+    font-weight: 400;
+  }
+
+  .counter-1,
+  .counter-2,
+  .counter-3 {
     position: relative;
-    overflow: hidden;
+    top: -15px;
   }
 
-
-
-  .loading .loading__percent {
-    text-align: center;
-    color: #000;
-    font-size: 40px;
-    margin-top: 16px;
-    font-family: m4;
+  .num1offset1 {
+    position: relative;
+    right: -25px;
   }
 
-  .loading .loading__des {
+  .num1offset2 {
+    position: relative;
+    right: -10px;
+  }
+
+  .loader {
     position: absolute;
-    bottom: 25px;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 50px;
+    transform: translate(-50%, -50%);
+    display: flex;
+    background-color: gray;
+  }
+
+  .loader-1 {
+    position: relative;
+    background-color: var(--white-cl);
+    width: 200px;
+  }
+
+  .loader-2 {
+    position: relative;
+    background-color: var(--white-cl);
+    width: 100px;
+  }
+
+  .bar {
+    width: 50px;
+  }
+
+  .loading__des {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     font-size: 17px;
     font-family: m2;
-  }
-
-  .loading .loading__name {
-    font-family: m1;
-    font-size: 8rem;
-    text-transform: uppercase;
-    margin-bottom: 5px;
-
-  }
-
-  .loading.--hide {
-    /* opacity: 0; */
-    visibility: hidden;
-    transition: 0.3s;
-    -webkit-transition: 0.3s;
   }
 </style>
 
 <body class="homepage">
   <div class="cusor"></div>
   <div class="cusorFollow"></div>
-  <!--Loading Page-->
-  <div class="loading">
-    <!-- <p class="loading__name">Nguyen Vo Minh Toan</p> -->
-    <span class="loading__percent">0%</span>
-    <p class="loading__des">Please wait, content is loading.</p>
   </div>
-  <!--End Loading Page-->
-
-  <!--Header-->
-  <header class="header">
-    <div class="container">
-      <ul class="header__menu">
-        <li><a href="#hero" class="active scale">Home</a></li>
-        <li><a href="#about" class="scale">About</a></li>
-        <li><a href="#project" class="scale">Work</a></li>
-        <li><a href="#contact" class="scale">Contact</a></li>
-      </ul>
-      <div class="header__btn">
-        <!-- <span></span>
-        <p>Close</p> -->
+  <div class="loading-screen">
+    <p class="loading__des">Please wait, content is loading.</p>
+    <div class="counter ">
+      <div class="counter-1 digit">
+        <div class="num">0</div>
+        <div class="num num1offset1">1</div>
       </div>
-      <div class="nav">
-        <div class="nav__top">
-          <li>
-            <a href="index.html"><sub>01</sub> Home</a>
-          </li>
-          <li>
-            <a href="about.html"> <sub>02</sub> About</a>
-          </li>
-          <li>
-            <a href="about.html"><sub>03</sub> Project</a>
-          </li>
-          <li>
-            <a href="about.html"><sub>04</sub> Contact</a>
-          </li>
-        </div>
-        <div class="nav__bottom">
-          <a href="#" class="ig">Instagram</a>
-          <a href="#" class="be">Behance</a>
-          <a href="#" class="brib">Dribble</a>
-          <a href="#" class="link">Linkedin</a>
-        </div>
+      <div class="counter-2 digit">
+        <div class="num">0</div>
+        <div class="num num1offset2">1</div>
+        <div class="num">2</div>
+        <div class="num">3</div>
+        <div class="num">4</div>
+        <div class="num">5</div>
+        <div class="num">6</div>
+        <div class="num">7</div>
+        <div class="num">8</div>
+        <div class="num">9</div>
+        <div class="num">0</div>
+      </div>
+      <div class="counter-3 digit">
+        <div class="num">0</div>
+        <div class="num">1</div>
+        <div class="num">2</div>
+        <div class="num">3</div>
+        <div class="num">4</div>
+        <div class="num">5</div>
+        <div class="num">6</div>
+        <div class="num">7</div>
+        <div class="num">8</div>
+        <div class="num">9</div>
       </div>
     </div>
-  </header>
-  <!--End Header-->
-  <main>
+  </div>
 
+  <!--End Loading Page-->
+  <main>
+    <div class="nav__top grid ">
+      <a href="index.html" class="nav__top-left up scale">Toan Nguyen</a>
+      <div class="nav__top-center scale">
+        <p>Saigon</p>
+        <div class="clock" id="clock"></div>
+      </div>
+      <a href="about.html" class="nav__top-right up scale">About</a>
+    </div>
     <!--Section Hero-->
     <section class="hero">
       <div class="container">
-        <div class="hero__textbox">
-          <div class="hero__textbox-third">
-            <h1 class="scale">Nguyen Vo Minh Toan</h1>
-            <p>frontend developer</p>
-          </div>
-        </div>
-        <div class="circle">
-          <div class="circle__logo"></div>
-          <div class="circle__text">
-            <p>Scroll Down Scroll Down Scroll Down Scroll Down Scroll Down</p>
-          </div>
-        </div>
+        <canvas id="draw"></canvas>
       </div>
     </section>
-    <!--End Section Hero-->
-
-
-
-    <section class="about --line">
-      <div class="container">
-        <div class="about__title title --left scale">About</div>
-        <div class="about__textbox">
-          <div class="about__textbox-des">
-            <p class="hi">Xin Chao !</p>
-            <h2 class="name scale">
-              I'm Toan Nguyen. Currently based in Saigon a Frontend Developer & Designer.
-              <span class="de"></span>
-            </h2>
-            <div class="content">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vitae commodo sem. Morbi a pretium
-                dui. Vestibulum
-                dictum et magna vitae semper.</p>
-              <p>Mauris ut neque ut nisi pulvinar faucibus nec ut enim. In hac habitasse
-                platea dictumst.
-              </p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vitae commodo sem. Morbi a pretium
-                dui. Vestibulum
-                dictum et magna vitae semper.</p>
-            </div>
-          </div>
-          <div class="about__textbox-other scale">
-            <img src="images/avt.jpeg" alt="" />
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="skill --line">
-      <div class="container">
-        <div class="skill__title title  scale">Skill</div>
-        <div class="flex">
-          <!-- <h2 class="skill__text scale">
-            ‟ Addiction is anything that drains life of meaning while making it
-            seem better. ”
-          </h2> -->
-          <div class="skill__list scale ">
-            <p class="skill__list-item">FRONTEND</p>
-            <p class="skill__list-item">PIXEL PERFECT</p>
-            <p class="skill__list-item">RESPONSIVE</p>
-            <p class="skill__list-item">GSAP</p>
-            <p class="skill__list-item">JQuery</p>
-            <p class="skill__list-item">TAILWIND CSS</p>
-            <p class="skill__list-item">JAVASCRIPT</p>
-            <p class="skill__list-item">SCSS</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- End Section Project-->
-
-    <!--End Section Project-->
-    <section class="project  --line ">
-      <div class="container">
-        <h2 class="project__title scale title --left">
-          Work
-        </h2>
-        <div class="project__list">
-          <a href="https://luxestate.vercel.app" target="_blank" class="project__list-item">
-            <p class="number">#001</p>
-            <div class="name">
-              <h2>Luxestate</h2>
-            </div>
-            <div class="view">
-              <p class="view__site">Click to view</p>
-            </div>
-          </a>
-        </div>
-        <div class="project__list">
-          <a href="https://wooder-puce.vercel.app" target="_blank" class="project__list-item">
-            <p class="number">#002</p>
-            <div class="name">
-              <h2>Wooder</h2>
-            </div>
-            <div class="view">
-              <p class="view__site">Click to view</p>
-            </div>
-          </a>
-        </div>
-        <div class="project__list">
-          <a href="https://financeflow-black.vercel.app" target="_blank" class="project__list-item">
-            <p class="number">#003</p>
-            <div class="name">
-              <h2>Finance</h2>
-            </div>
-            <div class="view">
-              <p class="view__site">Click to view</p>
-            </div>
-          </a>
-        </div>
-        <div class="project__list">
-          <a href="https://cfd-coures-deploy.vercel.app" target="_blank" class="project__list-item">
-            <p class="number">#004</p>
-            <div class="name">
-              <h2>Course</h2>
-            </div>
-            <div class="view">
-              <p class="view__site">Click to view</p>
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
-    <section class="contact --line">
-      <div class="container">
-        <div class="contact__title title scale">Contact</div>
-        <div class="contact__textbox">
-          <div class="contact__textbox-content">
-            <p class="address">44 Le Lai, Tan Binh, Sai Gon</p>
-            <p>+84 868 7929 34</p>
-          </div>
-          <div class="contact__textbox-social">
-            <div class="list">
-              <a class="--after" href="https://www.facebook.com/toanf.ngn/" target="_blank">Facebook</a>
-              <a class="--after" href="https://www.linkedin.com/in/toan-nguyen-89105a284/" target="_blank">Linkedin</a>
-              <a class="--after" href="https://www.instagram.com/toanf.ngn/" target="_blank">Instagram</a>
-            </div>
-            <p class="mail scale">nguyentoan21411 <br>@gmail.com</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!--End Section Contact-->
-  </main>
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__item">
-        <p class="footer__item-left">DEVELOPMENT BY <span class="scale">TOAN NGUYEN</span></p>
-        <p class="footer__item-right scale">
-          BACK TO TOP
-        </p>
-      </div>
+    <div class="nav__bottom grid">
+      <a href="work.html" class="nav__bottom-left up scale">Work</a>
+      <a href="about.html" class="nav__bottom-right up scale">Contact</a>
     </div>
-  </footer>
+    <!--End Section Hero-->
+  </main>
+
   <!--Script-->
   <script type="text/javascript" src="dest/jsmain.min.js"></script>
   <script type="text/javascript" src="dest/main.js"></script>
