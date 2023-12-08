@@ -1,7 +1,7 @@
 .hero {
 
   canvas {
-    position: absolute;
+    position: relative;
     height: 100vh;
     width: 100vw;
     top: 0;
@@ -49,7 +49,69 @@
 }
 
 .about {
-  padding: 150px 0;
+  padding: 250px 0;
+
+
+  &__header {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    z-index: 2;
+    // width: 100%;
+
+    &-letters {
+      flex: 1;
+      display: flex;
+
+      div {
+        flex: 1;
+        font-size: 11vw;
+        font-weight: 400;
+        text-align: center;
+      }
+    }
+  }
+
+  &__content {
+    position: relative;
+    top: 0;
+    width: 100%;
+    min-height: 100vh;
+
+    .img-holder {
+      position: relative;
+      top: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: var(--white-cl);
+      clip-path: polygon(37.5% 20%, 62.5% 20%, 62.5% 80%, 37.5% 80%);
+      transform: rotate(30deg);
+
+      img {
+        position: relative;
+        transform: scale(2);
+      }
+    }
+
+    .content-holder {
+      position: relative;
+      top: -5px;
+      width: 100%;
+      padding: 1em;
+
+      .row {
+        margin: 2em 1em;
+
+        .img {
+          height: 275px;
+          width: 200px;
+        }
+
+      }
+    }
+  }
 
   &__wrapper {
     display: flex;
@@ -57,6 +119,12 @@
     align-items: center;
     flex-direction: column;
     height: 50vh;
+
+    &-title {
+      font-size: 7.5rem;
+      font-family: m5;
+      margin-bottom: 35px;
+    }
 
     &-des {
       font-size: 3rem;
@@ -71,16 +139,19 @@
 
 .cb-tagreel {
   position: relative;
+
 }
 
 .cb-tagreel-content {
   padding: 200px 0;
+
 }
 
 .cb-tagreel-items {
   margin: -58px 0;
   overflow: hidden;
   cursor: default;
+
 }
 
 .cb-tagreel-row {
@@ -88,6 +159,7 @@
   position: relative;
   text-align: center;
   white-space: nowrap;
+
 }
 
 .cb-tagreel-item {
@@ -104,41 +176,28 @@
   display: inline-block;
   z-index: 1;
   margin-right: 30px;
-  font-family: m3;
+  font-family: m5;
 }
 
 .gallery {
   width: 100%;
-  height: calc(100vh - 60px);
+  height: 100vh;
   position: relative;
 }
 
-.img {
-  width: 75px;
-  height: 100px;
-  position: absolute;
-  overflow: hidden;
-  margin: 20px;
-
-  img {
-    @include mid;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: 0.4s;
-
-    &:hover {
-      filter: grayscale(0%);
-    }
-
-    &:not(:hover) {
-      filter: grayscale(100%);
-    }
-  }
-}
 
 .contact {
   padding: 150px 0;
+
+  &__title {
+    font-size: 7.5rem;
+    font-family: m5;
+    margin-bottom: 35px;
+    text-transform: uppercase;
+    position: relative;
+    left: 55%;
+    margin-bottom: 80px;
+  }
 
   p {
     font-family: m5;
@@ -186,6 +245,41 @@
       &:nth-child(3) {
         margin-right: initial;
       }
+    }
+  }
+}
+
+.work {
+  padding-top: 100px;
+
+  .container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  &__title {
+    font-size: 7.5rem;
+    font-family: m5;
+    margin-bottom: 35px;
+    text-transform: uppercase;
+  }
+
+  .item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: 100px;
+    background-color: #b0b0b0;
+    margin: 10px;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
     }
   }
 }

@@ -1,3 +1,49 @@
+//draw
+// const canvas = document.querySelector("canvas");
+// const ctx = canvas.getContext("2d");
+
+// canvas.width = window.innerWidth;
+// canvas.height = window.innerHeight;
+
+// ctx.strokeStyle = "#BADA55";
+// ctx.lineJoin = "round";
+// ctx.lineCap = "round";
+// ctx.lineWidth = 5;
+
+// let isDrawing = false;
+// let lastX = 0;
+// let lastY = 0;
+// let hue = 0;
+// let direction = true;
+
+// function draw(e) {
+//   if (!isDrawing) return;
+//   ctx.strokeStyle = `hsl(${hue},100%,50%)`
+//   ctx.beginPath();
+//   ctx.moveTo(lastX, lastY);
+//   ctx.lineTo(e.offsetX, e.offsetY);
+//   ctx.stroke();
+//   [lastX, lastY] = [e.offsetX, e.offsetY];
+//   hue++;
+
+//   if (gue >= 360) {
+//     hue = 0;
+//   }
+// }
+// function clearCanvas() {
+//   ctx.clearRect(0, 0, canvas.width, canvas.height);
+// }
+// canvas.addEventListener("mousedown", (e) => {
+//   isDrawing = true;
+//   [lastX, lastY] = [e.offsetX, e.offsetY];
+// });
+
+// canvas.addEventListener("mousemove", draw);
+// canvas.addEventListener("mouseup", () => {
+//   isDrawing = false;
+//   clearCanvas();
+// })
+
 
 //custom mouse
 let cusor = $(".cusor");
@@ -104,4 +150,203 @@ function formatTime(time) {
 }
 
 setInterval(updateDigitalClock, 1000);
-updateDigitalClock(); 
+updateDigitalClock();
+
+
+//work
+// const positions = [
+//   { top: "0%", left: "0%" },
+//   { top: "0%", left: "10%" },
+//   { top: "0%", left: "60%" },
+//   { top: "16%", left: "15%" },
+//   { top: "16%", left: "40%" },
+//   { top: "16%", left: "90%" },
+//   { top: "32%", left: "33%" },
+//   { top: "32%", left: "75%" },
+//   { top: "48%", left: "0%" },
+//   { top: "48%", left: "50%" },
+//   { top: "64%", left: "57%" },
+//   { top: "64%", left: "90%" },
+//   { top: "80%", left: "20%" },
+//   { top: "80%", left: "70%" }
+// ];
+
+// const imgs = document.querySelectorAll(".img")
+// gsap.set(".img", {
+//   top: "45%",
+//   left: "50%",
+//   transform: "translate(-50%,-50%) scale(0)"
+// });
+// gsap.to(".img", {
+//   scale: 1,
+//   width: "300px",
+//   height: "400px",
+//   stagger: 0.15,
+//   duration: 0.75,
+//   ease: "power2.out",
+//   delay: 1,
+//   onComplete: scatterAndShrink,
+// });
+// function scatterAndShrink() {
+//   gsap.to(".img", {
+//     top: (i) => positions[i].top,
+//     left: (i) => positions[i].left,
+//     transform: "none",
+//     width: "75px",
+//     height: "100px",
+//     stagger: 0.75,
+//     duration: 0.75,
+//     ease: "powerr2.out",
+//   })
+// }
+
+//about
+gsap.registerPlugin(ScrollTrigger);
+document.addEventListener("DOMContentLoaded", function () {
+  const contentHoolderHeight = document.querySelector(".work__title").offsetHeight;
+  const imgHolderHeight = window.innerHeight;
+  const additionalScrollHeight = window.innerHeight;
+  const totalBodyHeight = contentHoolderHeight + imgHolderHeight + additionalScrollHeight;
+  document.body.style.height = `${totalBodyHeight}px`;
+});
+ScrollTrigger.create({
+  trigger: ".about__content",
+  start: "-0.1% top",
+  end: "bottom bottom",
+  transition: 1,
+  onEnter: () => {
+    gsap.set(".about__content", { position: "absolute", top: "195%" })
+  },
+  onLeaveBack: () => {
+    gsap.set(".about__content", { position: "fixed", top: "0" })
+  }
+})
+gsap.to(".about__header .about__header-letters:first-child", {
+  x: () => -innerWidth * 5,
+  scale: 10,
+  ease: "power2.inOut",
+  scrollTrigger: {
+    start: "top top",
+    end: `+=200%`,
+    scrub: 1,
+  }
+
+})
+gsap.to(".about__header .about__header-letters:last-child", {
+  x: () => innerWidth * 5,
+  scale: 10,
+  ease: "power2.inOut",
+  scrollTrigger: {
+    start: "top top",
+    end: `+=200%`,
+    scrub: 1,
+  }
+})
+gsap.to(".img-holder", {
+  rotation: 0,
+  clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+  ease: "power2.inOut",
+  scrollTrigger: {
+    start: "top top",
+    end: `+=200%`,
+    scrub: 1,
+  }
+})
+gsap.to(".img-holder img", {
+  scale: 1,
+  ease: "power2.inOut",
+  scrollTrigger: {
+    start: "top top",
+    end: `+=200%`,
+    scrub: 1,
+  }
+})
+
+//work
+const items = document.querySelectorAll(".item");
+const container = document.querySelector(".container");
+const numberOfItem = items.length;
+const angleIncrement = (2 * Math.PI) / numberOfItem;
+const radius = 300;
+let isGalleryOpen = false;
+
+const centerX = container.offsetWidth / 2;
+const centerY = container.offsetHeight / 2;
+
+const tl = gsap.timeline();
+
+items.forEach(function (item, index) {
+  const img = document.createElement('img');
+  img.src = 'images/' + (index + 1) + '.jpg';
+  item.appendChild(img);
+
+  const angle = index * angleIncrement;
+  const initialRotation = (angle * 180 / Math.PI) - 90;
+  const x = centerX + radius * Math.cos(angle);
+  const y = centerY + radius * Math.sin(angle);
+
+  gsap.set(item, { scale: 0 });
+  tl.to(item, {
+    left: x + 'px',
+    top: y + 'px',
+    rotation: initialRotation,
+    scale: 1,
+    duration: 1,
+    ease: "power2.Out",
+    delay: 1
+  }, index * 0.1);
+  item.addEventListener("click", function () {
+    if (!isGalleryOpen) {
+      isGalleryOpen = true;
+      const duplicate = item.cloneNode(true);
+      duplicate.style.position = 'absolute';
+      container.appendChild(duplicate);
+      gsap.to(Array.from(items).filter(i => i != item), {
+        scale: 0,
+        duration: 0.5,
+        ease: "power2.in",
+        stagger: 0.05
+      });
+      const endRotation =
+        initialRotation > 180 ? initialRotation - 360 : initialRotation;
+      gsap.to([item, duplicate], {
+        rotation: endRotation,
+        duration: 0.0001,
+        onComplete: function () {
+          gsap.to([item, duplicate], {
+            left: "50%",
+            top: "50%",
+            transform: "translate(-50%, -50%) sacle(5)",
+            duration: 1,
+            ease: "power2.out",
+            delay: 1.25
+          })
+        }
+      });
+      const closeGallery = function () {
+        if (isGalleryOpen) {
+          gsap.to([item, duplicate], {
+            left: x + 'px',
+            top: y + 'px',
+            rotation: initialRotation,
+            scale: 1,
+            duration: 1,
+            ease: "power2.out",
+            onComplete: function () {
+              duplicate.remove();
+              gsap.to(items, {
+                scale: 1,
+                duration: 1,
+                stagger: 0.05,
+                ease: "power2.out"
+              });
+              isGalleryOpen = false;
+            }
+          });
+        }
+      };
+      item.addEventListener("click", closeGallery);
+      duplicate.addEventListener("click", closeGallery);
+    }
+  })
+})
