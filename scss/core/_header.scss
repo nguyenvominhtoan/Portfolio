@@ -1,181 +1,51 @@
-/* Header */
 .header {
   background-color: transparent;
   width: 100vw;
-  height: var(--height-header);
   transition: var(--time-transition) background;
   top: 0;
+  position: relative;
   z-index: 200;
-  // position: fixed;
   @include transition(0.3s);
   font-size: 1.8rem;
-  font-family: m3;
+  height: var(--height-header);
 
-  &::after {
-    content: "";
-    width: 100%;
-    background-color: var(--text-cl);
-    height: 2.5px;
-    display: block;
-  }
+  // &.active {
+  //   color: var(--bg-cl);
+  // }
 
   .container {
     height: 100%;
-
-    @include xs {
-      flex-direction: initial;
-    }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
-  &__logo {
+  &__content {
+    &-left {
+      font-family: m5;
+      font-size: 24px;
+      z-index: 99991;
+      position: relative;
+    }
+
+
+  }
+
+  &__btn {
+    font-family: m3;
+    font-size: 18px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin-left: 10px;
-    z-index: 9999;
-    color: var(--text-cl);
-  }
+    z-index: 99991;
 
-  &__menu {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    height: min-content;
-    // justify-content: space-between;
-    overflow: hidden;
-    padding: 40px;
-    position: relative;
-
-    &-text {
-      a {
-        position: relative;
-        font-family: m4;
-        text-decoration: none;
-        font-size: 2.8rem;
-        color: var(--text-cl);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-transform: uppercase;
-        @include transition(var(--duration));
-
-        @include xs {
-          font-size: 1.8rem;
-        }
-
-        @include xxxs {
-          font-size: 1.3rem;
-        }
-
-        // &:hover {
-        //   font-style: italic;
-
-
-        // }
-
-        &.active,
-        &:hover {
-          &::before {
-            font-style: italic;
-            opacity: 1;
-            visibility: visible;
-          }
-        }
-      }
+    span {
+      background-color: var(--text-cl);
+      width: 15px;
+      height: 15px;
+      border-radius: 100%;
+      display: block;
+      margin-left: 10px;
     }
+
   }
-
-  // &__btn {
-  //   display: flex;
-  //   align-items: center;
-  //   width: 45px;
-  //   height: 45px;
-  //   // background: #0328ee;
-  //   border-radius: 1000px;
-  //   position: relative;
-  //   margin-left: 20px;
-  //   cursor: pointer;
-  //   z-index: 9999;
-
-  //   span {
-  //     width: 25px;
-  //     height: 2px;
-  //     left: 25%;
-  //     display: block;
-  //     content: "";
-  //     // width: 100%;
-  //     // height: 2px;
-  //     top: 50%;
-  //     background-color: var(--white-cl);
-  //     position: absolute;
-  //     @include transform(translateY(-50%));
-  //     @include transition(0.3s);
-  //   }
-
-  //   p {
-  //     font-family: m3;
-  //   }
-
-  //   &::before,
-  //   &::after {
-  //     position: absolute;
-  //     left: 25%;
-  //     top: 30%;
-  //     display: block;
-  //     content: "";
-  //     width: 25px;
-  //     height: 2px;
-  //     background-color: var(--white-cl);
-  //     @include transform(rotate(0deg) translateY(0px));
-  //     @include transition(0.3s);
-  //   }
-
-  //   &::after {
-  //     position: absolute;
-  //     bottom: 0;
-  //     top: 65%;
-  //     left: 25%;
-  //   }
-
-  //   &.active {
-  //     p {
-  //       display: block;
-  //       z-index: 9999;
-  //       margin-left: 40px;
-  //     }
-
-  //     &::before {
-  //       transform: (rotate(45deg) translate(6px, 6px));
-  //       @include transition(0.3s);
-  //     }
-
-  //     &::after {
-  //       transform: (rotate(-45deg) translate(6px, -6px));
-  //       @include transition(0.3s);
-  //     }
-
-  //     span {
-  //       opacity: 0;
-  //       @include transition(0.3s);
-  //     }
-  //   }
-
-  //   p {
-  //     display: none;
-  //     color: var(--white-cl);
-  //   }
-
-  //   // &.active {
-  //   //   p {
-  //   //     display: block;
-  //   //     z-index: 9999;
-  //   //   }
-
-  //   //   span {
-  //   //     opacity: 1;
-  //   //     @include transition(0.3s);
-  //   //   }
-  //   // }
-  // }
 }

@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0 , maximum-scale=1.0, user-scalable=0" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title>ToanNguyen | Portfolio</title>
+  <title>ToanNguyen</title>
 
   <meta name="title" content="Portfolio" />
   <meta name="description" content="Portfolio" />
@@ -36,12 +36,12 @@
 </head>
 <style>
   .loading-screen {
-    width: 100%;
-    height: 100%;
-    background-color: var(--bg-cl);
-    color: var(--white-cl);
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--text-cl);
+    color: var(--bg-cl);
     position: fixed;
-    z-index: 999;
+    z-index: 999999999;
     pointer-events: none;
     transition: 0.3s;
 
@@ -89,8 +89,29 @@
 <body class="homepage">
   <div class="cusor"></div>
   <div class="cusorFollow"></div>
-  </div>
-  <div class="loading-screen">
+  <header class="header">
+    <div class="container up">
+      <div class="header__content">
+        <div class="header__content-left">Toan Nguyen</div>
+      </div>
+      <a class="header__btn">
+        Get in touch <span id="span"></span>
+      </a>
+    </div>
+    <div class="nav">
+      <div class="nav__content up ">
+        <h2 class="scale">Wanna collab to make a project imposible? <br>
+          Contact me!</h2>
+        <div class="nav__content-des">
+          <div class="left">
+            <p>nguyentoan21411@gmail.com</p>
+            <p>+84 868 7929 34</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- <div class="loading-screen">
     <p class="loading__des">Please wait, content is loading.</p>
     <div class="counter ">
       <div class="counter-1 digit">
@@ -123,104 +144,53 @@
         <div class="num">9</div>
       </div>
     </div>
-  </div>
+  </div> -->
   <main>
-
-    <section class="hero">
-      <div class="nav__top grid ">
-        <a href="#" class="nav__top-left up scale">Toan Nguyen</a>
-        <div class="nav__top-center">
-          <p>Saigon</p>
-          <div class="clock" id="clock"></div>
-        </div>
-        <a href="#about" class="nav__top-right up scale">About</a>
-      </div>
+    <!-- <section class="hero center">
       <div class="container">
-        <canvas id="draw"></canvas>
-      </div>
-      <div class="nav__bottom grid">
-        <a href="#work" class="nav__bottom-left up scale">Work</a>
-        <a href="#contact" class="nav__bottom-right up scale">Contact</a>
+        <h1 class="hero__title title scale">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu rhoncus quam, nec maximus ipsum. Proin ut
+          ante porta,
+          gravida lectus et, condimentum nisl. Donec et ligula vel felis viverra sodales. Quisque sit amet laoreet
+          lorem.
+        </h1>
       </div>
     </section>
-    <section class="about">
-      <div class="container">
-        <div class="about__header up">
-          <div class="about__header-letters">
-            <div>p</div>
-            <div>o</div>
-            <div>r</div>
-            <div>t</div>
-          </div>
-          <div class="about__header-letters">
-            <div>f</div>
-            <div>o</div>
-            <div>l</div>
-            <div>i</div>
-            <div>o</div>
+    <section class="work ">
+      <div class="container ">
+        <div class="work__list">
+          <div class="work__list-item ">
+            <div class="img">
+              <div class="img__item">
+                <img src="images/w13.jpg" alt="img work">
+              </div>
+              <p class="up">Luxestate</p>
+            </div>
+            <div class="content">
+              <p>Luxestate</p>
+              <p>Appartment</p>
+            </div>
           </div>
         </div>
       </div>
-
-      <div class="about__wrapper">
-        <h2 class="about__wrapper-title up scale">
-          About
-        </h2>
-        <p class="about__wrapper-des scale">
-          My name is Toan Nguyen and I currently based in Saigon. I am a 21 year old and a frontend developer. The
-          technologies that
-          I
-          often use in
-          collaboration with the backend team are Javascript, Typescript and ReactJs. To make websites with animation, I
-          use
-          Jquery and Gsap, Scss. Regarding the database, I use MySQL, SQL Sever and MongoDB to create the database. If
-          you want to
-          create interesting products contact me.
-        </p>
-        <div class="cb-tagreel-row">
-          <div class="cb-tagreel-item"><span>HTML/</span></div>
-          <div class="cb-tagreel-item"><span>SCSS/</span></div>
-          <div class="cb-tagreel-item"><span>GSAP/</span></div>
-          <div class="cb-tagreel-item"><span>JAVASCRIPT/</span></div>
-          <div class="cb-tagreel-item"><span>REACTJS/</span></div>
-          <div class="cb-tagreel-item"><span>JQUERY/</span></div>
-          <div class="cb-tagreel-item"><span>PIXEL PERFECT/</span></div>
-          <div class="cb-tagreel-item"><span>REPONSIVE</span></div>
+    </section> -->
+    <div class="error">
+      <div class="container center">
+        <p class="error__404 ">404</p>
+        <img src="images/blur.png" alt="" class="error__blur" />
+        <div class="error__textbox">
+          <h2 class="heading --center --white-cl --h2">Page Not Found</h2>
+          <!-- <p class="des --content --center">
+            The page you're looking for can't be found. Double-check the URL
+            and try again. Or click the button below.
+          </p> -->
+          <!-- <div class="error__textbox-btn groupbtn --center">
+            <a href="#" class="download btnmain">View Pring</a>
+            <a href="#" class="btnpricing btnmain">Go Home</a>
+          </div> -->
         </div>
       </div>
-    </section>
-    <section class="work">
-      <div class="container">
-        <h2 class="work__title scale">Recent Work</h2>
-        <div class="gallery">
-          <div class="item"></div>
-          <div class="item"></div>
-          <div class="item"></div>
-          <div class="item"></div>
-          <div class="item"></div>
-          <div class="item"></div>
-          <div class="item"></div>
-          <div class="item"></div>
-          <div class="item"></div>
-          <div class="item"></div>
-          <div class="item"></div>
-          <div class="item"> </div>
-        </div>
-      </div>
-    </section>
-    <section class="contact">
-      <h2 class="contact__title scale">Get in touch</h2>
-      <div class="container">
-        <p class="mail scale">
-          nguyenvominhtoan.dev <br> @gmail.com
-        </p>
-        <div class="social">
-          <a href="https://www.instagram.com/toanf.ngn">Instagram</a>
-          <a href="https://www.linkedin.com/in/nguyenvominhtoan">Linkedin</a>
-          <a href="https://github.com/nguyenvominhtoan">Github</a>
-        </div>
-      </div>
-    </section>
+    </div>
   </main>
 
   <!--Script-->

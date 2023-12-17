@@ -25,8 +25,6 @@ body {
   max-width: var(--max-width-page);
   margin: auto;
   scroll-behavior: smooth;
-  font-size: var(--fs-body);
-  line-height: var(--lh-body);
   overflow-x: hidden;
   overflow-y: scroll;
   background: var(--bg-cl);
@@ -38,17 +36,22 @@ body {
   --duration: 0.4s;
 
   .cusor {
-    width: 4px;
-    height: 4px;
+    width: 30px;
+    height: 30px;
     position: fixed;
     top: 0;
     left: 0;
     border-radius: 50%;
     pointer-events: none;
-    z-index: 9999;
-    background-color: var(--text-cl);
+    z-index: 99999;
+    background-color: var(--bg-cl);
+    mix-blend-mode: difference;
 
     @include sm {
+      display: none;
+    }
+
+    &.active {
       display: none;
     }
   }
@@ -57,12 +60,12 @@ body {
     width: 40px;
     height: 40px;
     position: fixed;
-    border: 1px solid white;
+    // border: 1px solid white;
     top: 0;
     left: 0;
     border-radius: 50%;
     pointer-events: none;
-    z-index: 9999;
+    z-index: 99999;
     transition: var(--duration) width, var(--duration) height, var(--duration) background;
     mix-blend-mode: difference;
 
