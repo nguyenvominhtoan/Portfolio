@@ -1,156 +1,399 @@
-.hero {
-  height: 100vh;
+  .loading-screen {
+      width: 100vw;
+      height: 100vh;
+      background-color: var(--bg-cl);
+      color: var(--text-cl);
+      position: fixed;
+      z-index: 99999;
+      pointer-events: none;
+      transition: 0.3s;
 
-  &__title {
-    -webkit-text-stroke: 1px var(--text-cl);
-    -webkit-text-fill-color: transparent;
-  }
-}
-
-.work {
-  &__list {
-    &-item {
-      position: relative;
-
-      .img {
-        &__item {
-          width: 35%;
-        }
-
-        p {
-          position: absolute;
-          font-size: 118px;
-          top: 40%;
-          right: 59%;
-          font-family: m3;
-        }
-      }
-    }
-  }
-}
-
-.error {
-  padding-top: 253px;
-
-  @include sm {
-    padding-top: 133px;
   }
 
-  .container {
-    flex-direction: column;
-  }
-
-  &__404 {
-    font-size: 180px;
-    line-height: 160px;
-    font-family: m5;
-
-    @include xxs {
-      font-size: 120px;
-      line-height: 120px;
-    }
-  }
-
-  &__blur {
-    position: absolute;
-    top: -350px;
-    z-index: -1;
-    pointer-events: none;
-
-    @include sm {
-      position: absolute;
-      top: -250px;
-    }
-
-    @include xs {
-      position: absolute;
-      top: -200px;
-    }
-
-    @include xxs {
-      position: absolute;
-      left: -130px;
-      max-width: initial;
-      width: 150%;
-    }
-
-    @include xxxs {
-      position: absolute;
-      max-width: initial;
-      width: 170%;
-    }
-  }
-
-  &__textbox {
-    display: flex;
-    flex-direction: column;
-
-    .heading {
-      margin-top: 20px;
-      font-size: 24px;
-      font-family: m3;
-    }
-
-    .des {
-      max-width: 557px;
-    }
-
-    &-btn {
+  .counter {
+      position: fixed;
+      left: 50px;
+      bottom: 50px;
       display: flex;
-      flex-direction: row;
-      align-items: center;
-      top: 40%;
-      margin-top: 27px;
+      height: 100px;
+      font-size: 100px;
+      line-height: 102px;
+      clip-path: polygon(0 0, 100% 0, 100% 100px, 0 100px);
+      font-weight: 400;
+
+      @include xs {
+          font-size: 90px;
+      }
 
       @include xxs {
-        display: flex;
-        flex-direction: column;
+          font-size: 80px;
       }
 
-      a {
-        font-size: var(--text-btn);
-        line-height: var(--lh-btn);
-        letter-spacing: var(--ls-btn);
+      @include xxxs {
+          font-size: 70px;
       }
-
-      .download {
-        padding: 27px 32px;
-        max-width: 210px;
-        max-height: 70px;
-
-        @include xxs {
-          padding: 27px 188px;
-          margin-left: initial;
-        }
-
-        @include xxxs {
-          padding: 27px 172px;
-        }
-      }
-
-      .btnpricing {
-        max-width: 191px;
-        max-height: 70px;
-        background: rgba(255, 255, 255, 0.1);
-        @include transition(0.3s);
-
-        @include xxs {
-          padding: 27px 188px;
-          margin-left: initial;
-        }
-
-        @include xxxs {
-          padding: 27px 172px;
-        }
-
-        &:hover {
-          background-color: var(--blue-cl);
-        }
-      }
-
-      button {
-        cursor: pointer;
-      }
-    }
   }
-}
+
+  .counter-1,
+  .counter-2,
+  .counter-3 {
+      position: relative;
+      top: -15px;
+  }
+
+  .num1offset1 {
+      position: relative;
+      right: -25px;
+  }
+
+  .num1offset2 {
+      position: relative;
+      right: -10px;
+  }
+
+  .loading__des {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 17px;
+      font-family: m2;
+
+      @include xs {
+          font-size: 15px;
+      }
+
+      @include xxs {
+          font-size: 13px;
+      }
+
+      @include xxxs {
+          font-size: 11px;
+      }
+  }
+
+  .hero {
+      height: 100vh;
+
+      &__textbox {
+          display: flex;
+          align-items: center;
+
+          .left,
+          .right {
+              font-size: 65rem;
+              font-family: m3;
+
+              @include xs {
+                  font-size: 40rem;
+              }
+
+              @include xxs {
+                  font-size: 30rem;
+              }
+
+              @include xxxs {
+                  font-size: 18rem;
+              }
+          }
+
+          .center {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+
+              p {
+                  margin-bottom: 30px;
+                  font-size: 18px;
+                  letter-spacing: 0.3px;
+                  font-family: m1;
+
+                  @include xs {
+                      font-size: 13px;
+                  }
+
+                  @include xxs {
+                      font-size: 10px;
+                      white-space: nowrap;
+                  }
+
+                  @include xxxs {
+                      font-size: 8px;
+                      white-space: nowrap;
+                  }
+              }
+
+              .line {
+                  height: 20px;
+                  width: 300px;
+                  background-color: var(--white-cl);
+                  display: block;
+
+                  @include xs {
+                      width: 200px;
+                      height: 18px;
+                  }
+
+                  @include xxs {
+                      width: 130px;
+                      height: 16px;
+                  }
+
+                  @include xxxs {
+                      width: 100px;
+                      height: 13px;
+                  }
+              }
+          }
+      }
+  }
+
+  .bio {
+      &::before {
+          height: 2px;
+          background-color: var(--white-cl);
+          width: 100%;
+          display: block;
+          margin-bottom: 85px;
+          content: "";
+      }
+
+      .container {
+          display: flex;
+          justify-content: space-between;
+
+          @include xs {
+              flex-direction: column;
+          }
+
+      }
+
+      &__abt {
+          max-width: 505px;
+          margin-right: 50px;
+
+          p {
+              font-size: 32px;
+              letter-spacing: 0.3px;
+              font-family: m5;
+
+              @include xs {
+                  font-size: 20px;
+              }
+
+              &:nth-child(1) {
+                  margin-bottom: 30px;
+              }
+
+              &:nth-child(2) {
+                  margin-bottom: 30px;
+              }
+          }
+      }
+
+      &__skill {
+
+
+          h2 {
+              margin-bottom: 15px;
+              font-size: 18px;
+              font-family: m3;
+
+              @include xs {
+                  font-size: 14px;
+              }
+          }
+
+          p {
+              font-size: 16px;
+              letter-spacing: 0.1px;
+              margin-bottom: 5px;
+
+              @include xs {
+                  font-size: 12px;
+              }
+          }
+      }
+  }
+
+  .contact {
+      &::before {
+          height: 2px;
+          background-color: var(--white-cl);
+          width: 100%;
+          display: block;
+          margin: 85px 0px;
+          content: "";
+      }
+
+      h2 {
+          font-size: 12rem;
+
+          @include xxs {
+              font-size: 9rem;
+          }
+
+          @include xxs {
+              font-size: 6.5rem;
+          }
+      }
+
+      &__content {
+
+
+          &-des {
+              justify-content: space-between;
+              text-transform: lowercase;
+              margin-top: 100px;
+              display: flex;
+              align-items: center;
+
+              p {
+                  font-size: 20px;
+                  font-family: m1;
+                  margin-bottom: 10px;
+
+                  @include xxs {
+                      font-size: 16px;
+                  }
+
+                  @include xxs {
+                      font-size: 14px;
+                  }
+
+                  &:nth-child(2) {
+                      font-family: m5;
+                  }
+              }
+
+              .right {
+                  a {
+                      margin-right: 7px;
+                      font-size: 14px;
+
+                      @include xxxs {
+                          font-size: 11.5px;
+                      }
+                  }
+              }
+          }
+      }
+  }
+
+  .work {
+      &__list {
+          display: flex;
+
+          .item {
+              margin-bottom: 90px;
+
+              img {
+                  height: 400px;
+              }
+          }
+      }
+  }
+
+  .project-categ {
+      font-family: m3;
+      font-size: 13px;
+      color: var(--white-smoke);
+
+      @include xxs {
+          font-size: 11.5px;
+      }
+
+      @include xxs {
+          font-size: 11px;
+      }
+  }
+
+  .cursor {
+      position: absolute;
+      width: 600px;
+      height: 400px;
+      top: 50%;
+      left: 50%;
+      transform: scale(0.1);
+      opacity: 0;
+      margin: -100px 0 0 -100px;
+      background: url(image-1.jpg) no-repeat 50% 50%;
+      background-size: cover;
+      z-index: 1;
+  }
+
+  .wrapper {
+      width: 100%;
+      margin: 180px auto;
+      height: 100%;
+
+      &::before {
+          height: 2px;
+          background-color: var(--white-cl);
+          width: 100%;
+          display: block;
+          margin: 85px 0px;
+          content: "";
+      }
+  }
+
+  .project {
+      width: 100%;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 2;
+      color: white;
+      mix-blend-mode: difference;
+      height: 100px;
+
+      &::before {
+          content: "";
+          display: block;
+          width: 100%;
+          height: 3px;
+          background-color: var(--white-cl);
+          position: absolute;
+          bottom: -3px;
+          @include transform(scaleX(0));
+          // transition: var(--duration) transform, var(--duration) background-color;
+          transition-duration: 0.8s;
+          @include transform-origin(left);
+
+      }
+
+
+      &:hover {
+          &::before {
+              @include transform(scaleX(1));
+              @include transform-origin(left);
+              opacity: 1;
+              visibility: visible;
+          }
+      }
+
+      .project-title {
+          font-size: 20px;
+          font-family: m5;
+
+          @include xxs {
+              font-size: 17px;
+          }
+
+          @include xxxs {
+              font-size: 16px;
+          }
+      }
+  }
+
+  .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+  }
