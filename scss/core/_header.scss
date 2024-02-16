@@ -9,14 +9,14 @@
   font-size: 1.8rem;
   height: var(--height-header);
 
-  &::before {
-    height: 2px;
-    background-color: var(--white-cl);
-    width: 100%;
-    display: block;
-    margin-top: 30px;
-    content: "";
-  }
+  // &::before {
+  //   height: 2px;
+  //   background-color: var(--white-cl);
+  //   width: 100%;
+  //   display: block;
+  //   margin-top: 30px;
+  //   content: "";
+  // }
 
   &.active-header {
     transition-duration: 0.8s;

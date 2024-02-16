@@ -42,3 +42,11 @@
   font-style: normal;
   font-display: fallback;
 }
+@font-face {
+  font-family: "rb";
+  src: url("../fonts/Roboto-Light.woff2") format("woff2"),
+    url("../fonts/Roboto-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
