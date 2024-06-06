@@ -13,7 +13,7 @@
 
   <link rel="canonical" href="#" />
   <link rel="icon" href="favicon.ico" />
-  <!-- Meta Tag Facebook -->
+
   <meta property="og:locale" content="en" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="Portfolio" />
@@ -22,13 +22,77 @@
   <meta property="og:site_name" content="Portfolio" />
   <meta property="og:image" content="" />
 
-  <!-- Meta Tag Twitter -->
+
   <meta name="twitter:card" content="Portfolio" />
   <meta name="twitter:site" content="Portfolio" />
   <meta name="twitter:title" content="Portfolio" />
   <meta name="twitter:description" content="Portfolio" />
   <meta name="twitter:image" content="Portfolio" />
+  <style>
+    .loading {
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      position: fixed;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      opacity: 1;
+      visibility: visible;
+      transition: 0.3s;
+    }
 
+    .loading .loading__inner {
+      width: 140px;
+      height: 5px;
+      border-radius: 10px;
+      background-color: var(--blue-hover-cl);
+
+      position: relative;
+      overflow: hidden;
+    }
+
+    .loading .loading__inner .loading__inner-progress {
+      width: 0%;
+      height: 100%;
+      position: absolute;
+      background-color: #fff;
+    }
+
+    .loading .loading__percent {
+      text-align: center;
+      color: #000;
+      font-size: 13rem;
+      margin-top: 16px;
+      font-family: t1;
+      letter-spacing: -6.8px;
+      color: var(--white-cl);
+    }
+
+    .loading.--hide {
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.3s;
+      -webkit-transition: 0.3s;
+    }
+
+    .loading svg {
+      width: 40px;
+    }
+
+    /* Progress Bar */
+    .progress {
+      width: 0%;
+      height: 5px;
+      position: fixed;
+      left: 0;
+      top: 0;
+      background-color: var(--white-cl);
+      z-index: 500;
+    }
+  </style>
   <link rel="stylesheet" href="build/tailwind.css">
   <link rel="stylesheet" href="dest/style.min.css" />
   <link rel="stylesheet" href="dest/fonts.css" />
@@ -40,70 +104,334 @@
 <body class="homepage">
   <div class="cusor"></div>
   <div class="cusorFollow"></div>
-  <div class="grain"></div>
-  <header class="header">
-    <!-- <div class="container">
+  <!-- <div class="grain"></div> -->
+  <div class="loading">
+    <!-- <div class="loading__inner">
+      <div class="loading__inner-progress"></div>
+    </div> -->
+    <span class="loading__percent">0%</span>
+  </div>
+  <!-- <header class="header">
+    <div class="container">
       <div class="header__content">
-        <p class="name scale">ToanNguyen</p>
-        <p>Get in touch</p>
+        <p class="name scale">Toan Nguyen</p>
+        <p>Index</p>
+        <div class="header__content-bottom">
+          <p>Based in <br> Saigon</p>
+          <p class="time">Time</p>
+        </div>
       </div>
-    </div> -->
-  </header>
+    </div>
+  </header> -->
   <main>
-    <!-- <section class="hero">
-      <div class="container">
-        <h1 class="hero__text">Loremispoaisdbajksdbjasdbjkasjbdbajsbdj,asbdjkajsdbaskdjakdba</h1>
-      </div>
-    </section>
-    <section class="work">
-      <div class="container">
-        <div class="overlay">
-          <div class="t-1 marquee-wrapper">
-            <h1 class="name">Luxestate</h1>
-          </div>
-          <div class="t-2 marquee-wrapper">
-            <h1>Wooder</h1>
-          </div>
-          <div class="t-3 marquee-wrapper">
-            <h1 class="name">Financeflow</h1>
-          </div>
-          <div class="t-4 marquee-wrapper">
-            <h1 class="name">Photography</h1>
-          </div>
+    <div class="slider">
+      <div class="slide dark">
+        <div class="slide-img slide-img-1">
+          <img src="./images/slider-1-1.jpg" alt="product">
         </div>
-        <div class="modal">
-          <div class="modal-img">
-            <div class="img" id="t-1">
-              <img src="images/w12.jpg" alt="img">
-            </div>
-            <div class="img" id="t-2">
-              <img src="images/w13.jpg" alt="img">
-            </div>
-            <div class="img" id="t-3">
-              <img src="images/w14.jpg" alt="img">
-            </div>
-            <div class="img" id="t-4">
-              <img src="images/w15.jpg" alt="img">
-            </div>
-          </div>
-          <div class="info up">
-            <span class="num">01</span>
-            <div class="content">
-              <p class="name"> Toan Nguyen</p>
-              <p class="role">Frontend Developer</p>
-            </div>
-          </div>
+        <div class="slide-content">
+          <h1>Echoes</h1>
+        </div>
+        <div class="slide-img slide-img-2">
+          <img src="./images/slider-1-2.jpg" alt="product">
         </div>
       </div>
-    </section>
-    <div class="cusor1">
-      <i class="bi bi-arrow-right"></i>
-    </div> -->
-    <div class="error ">
-      <h3 class="scale">404</h3>
     </div>
   </main>
+  <!-- <main>
+    <section class="hr">
+      <div class="container">
+        <div class="top">
+          <div class="geo-in">
+            <p>Based in <br> Saigon</p>
+            <div class="t-y">
+              <span>2024 <br></span>
+              <span id="MyClockDisplay" class="clock" onload="showTime()"></span>
+            </div>
+          </div>
+          <div class="ex-in">
+            <p>Currently available for freelance projects</p>
+            <p class="tw">Developer and designer drawing inspiration from the diverse culture of Queens, working as an
+              independent
+              creative
+              crafting memorable experiences.</p>
+          </div>
+        </div>
+        <picture class="md">
+          <img src="images/avt.jpg" alt="md pic">
+        </picture>
+        <span id="scrollingText">
+          <h2>Creative Developer — Interaction Designer —</h2>
+          <h2>Creative Developer — Interaction Designer —</h2>
+        </span>
+      </div>
+    </section>
+    <section class="in">
+      <div class="container">
+        <div class="in-t">
+          <span>Intro</span>
+        </div>
+        <div class="in-c">
+          <p class="p-l">
+            Having started as a graphic designer and transitioning into a creative developer gives me a unique
+            perspective and
+            understanding in merging both visual aesthetics and modern technology.
+          </p>
+          <p class="p-r scale">
+            Creative developer with a design background, crafting immersive digital experiences that combine creativity
+            and
+            functionality.
+          </p>
+        </div>
+        <div class="in-b">
+          <span>Core Tools</span>
+          <div class="ct-w">
+            <div class="ct-i">
+              <h3 class="ct-n">
+                ReactJS
+              </h3>
+              <p class="sp">
+                JavaScript serves as the backbone for adding interactivity and implementing intricate functionalities
+                within web
+                applications. It enables the creation of dynamic features such as virtual scrolling, smooth page
+                transitions, advanced
+                text manipulation, and captivating animations.
+              </p>
+            </div>
+            <div class="ct-i">
+              <h3 class="ct-n">
+                NodeJS
+              </h3>
+              <p class="sp">
+                WebGL is a powerful tool for creating immersive and interactive 3D graphics directly within web
+                browsers. As a
+                JavaScript API, WebGL harnesses the GPU's capabilities, enabling the development of visually stunning
+                and
+                high-performance web applications.
+              </p>
+            </div>
+            <div class="ct-i">
+              <h3 class="ct-n">
+                MongoDB
+              </h3>
+              <p class="sp">
+                WebGL is a powerful tool for creating immersive and interactive 3D graphics directly within web
+                browsers. As a
+                JavaScript API, WebGL harnesses the GPU's capabilities, enabling the development of visually stunning
+                and
+                high-performance web applications.
+              </p>
+            </div>
+            <div class="ct-i">
+              <h3 class="ct-n">
+                GSAP
+              </h3>
+              <p class="sp">
+                A javascript runtime environment that allows to build dynamic and responsive web applications, by
+                creating interactive
+                elements and handling server-side tasks.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="w">
+      <div class="container">
+        <div class="w-t scale">
+          <span class="char-w">
+            <span class="char">S</span>
+          </span>
+          <span class="char-w">
+            <span class="char">e</span>
+          </span>
+          <span class="char-w">
+            <span class="char">l</span>
+          </span>
+          <span class="char-w">
+            <span class="char">e</span>
+          </span>
+          <span class="char-w">
+            <span class="char">c</span>
+          </span>
+          <span class="char-w">
+            <span class="char">t</span>
+          </span>
+          <span class="char-w">
+            <span class="char">e</span>
+          </span>
+          <span class="char-w">
+            <span class="char">d</span>
+          </span>
+          <br>
+          <span class="char-w">
+            <span class="char">W</span>
+          </span>
+          <span class="char-w">
+            <span class="char">o</span>
+          </span>
+          <span class="char-w">
+            <span class="char">r</span>
+          </span>
+          </span>
+          <span class="char-w">
+            <span class="char">k</span>
+          </span>
+          <span class="char-w">
+            <span class="char">s</span>
+          </span>
+        </div>
+        <div class="w-line"></div>
+        <a href="#" class="w-pr">
+          <div class="w-l">
+            <span class="w-index">
+              01/02
+            </span>
+            <p class="w-des">
+              Design and development for a multi-cloud solutions company specializing in cloud consulting, migrations
+              and cloud native
+              development.
+            </p>
+            <span class="w-name">
+              Financeflow
+            </span>
+          </div>
+          <div class="w-r">quywetyuqwuyetuyqwtuyeåååå 
+            <div class="w-ct">
+              <span class="w-y">
+                2023
+              </span>
+              <span>Creative Development</span>
+              <span class="w-vs">Visit Site</span>
+            </div>
+            <div class="w-img">
+              <img src="images/fi.png" alt="">
+            </div>
+          </div>
+        </a>
+        <div class="w-line"></div>
+        <a href="#" class="w-pr">
+          <div class="w-l">
+            <span class="w-index">
+              02/02
+            </span>
+            <p class="w-des">
+              Design and development for a multi-cloud solutions company specializing in cloud consulting, migrations
+              and cloud native
+              development.
+            </p>
+            <span class="w-name">
+              Shopee
+            </span>
+          </div>
+          <div class="w-r">
+            <div class="w-ct">
+              <span class="w-y">
+                2023
+              </span>
+              <span>Creative Development</span>
+              <span class="w-vs">Visit Site</span>
+            </div>
+            <div class="w-img">
+              <img src="images/w14.jpg" alt="">
+            </div>
+          </div>
+        </a>
+        <div class="w-line"></div>
+        <a href="#" class="w-pr">
+          <div class="w-l">
+            <span class="w-index">
+              03/03
+            </span>
+            <p class="w-des">
+              Design and development for a multi-cloud solutions company specializing in cloud consulting, migrations
+              and cloud native
+              development.
+            </p>
+            <span class="w-name">
+              Twitter API
+            </span>
+          </div>
+          <div class="w-r">
+            <div class="w-ct">
+              <span class="w-y">
+                2023
+              </span>
+              <span>Creative Development</span>
+              <span class="w-vs">Visit Site</span>
+            </div>
+            <div class="w-img">
+              <img src="images/w13.jpg" alt="">
+            </div>
+          </div>
+        </a>
+        <div class="w-line"></div>
 
+      </div>
+    </section>
+    <section class="ct">
+      <div class="container">
+        <div class="ct-t scale">
+          <div class="ct-r">
+            <span class="char-w">
+              <span class="char">G</span>
+            </span>
+            <span class="char-w">
+              <span class="char">e</span>
+            </span>
+            <span class="char-w">
+              <span class="char">t</span>
+            </span>
+            <span class="char-w">
+              <span class="char">i</span>
+            </span>
+            <span class="char-w">
+              <span class="char">n</span>
+            </span>
+            <br>
+            <span class="char-w">
+              <span class="char">t</span>
+            </span>
+            <span class="char-w">
+              <span class="char">o</span>
+            </span>
+            <span class="char-w">
+              <span class="char">u</span>
+            </span>
+            <span class="char-w">
+              <span class="char">c</span>
+            </span>
+            <span class="char-w">
+              <span class="char">h</span>
+            </span>
+          </div>
+        </div>
+        <div class="ct-sm">
+          <div class="ct-l">
+            <p>Currently available for freelance projects</p>
+            <span id="MyClockDisplay" class="clock" onload="showTime()"></span>
+          </div>
+          <div class="ct-c">
+            <p>
+              For any collaborative projects or inquiries feel free to reach out to me.
+            </p>
+            <a href="mailto:nguyentoan21411@gmail.com">nguyentoan21411@gmail.com</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="container">
+      <span>Developed by Toan Nguyen </span>
+      <div class="ft-c">
+        <a href="#">Linkedin</a>
+        <a href="#">Instagram</a>
+        <a href="#">Github</a>
+      </div>
+    </div>
+  </footer> -->
   <!--Script-->
   <script type="text/javascript" src="dest/jsmain.min.js"></script>
   <script type="text/javascript" src="dest/main.js"></script>

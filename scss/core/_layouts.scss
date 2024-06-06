@@ -30,7 +30,7 @@ body {
   overflow-y: scroll;
   background: var(--bg-cl);
   color: var(--text-cl);
-  font-family: m1;
+  font-family: t1;
   z-index: 99;
   // z-index: 9997;
   --duration: 0.4s;
@@ -93,7 +93,7 @@ body {
     left: 0;
     height: 100%;
     width: 100%;
-    pointer-event: none;
+    pointer-events: none;
     z-index: 300;
     transform: translateZ(0);
 
@@ -167,12 +167,12 @@ body {
 
   .container {
     width: 100%;
-    // max-width: var(--max-width-container);
+    max-width: var(--max-width-container);
     // padding-right: var(--gap);
     // padding-left: var(--gap);
-    // margin-right: auto;
-    // margin-left: auto;
-    // position: relative;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
   }
 
 }

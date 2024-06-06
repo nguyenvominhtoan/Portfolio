@@ -1,3 +1,86 @@
+gsap.registerPlugin(ScrollTrigger);
+document.addEventListener("DOMContentLoaded", function () {
+  const sliderContent = [
+    "Echeos",
+    "Ethereal",
+    "Neon Void",
+    "Mystics",
+    "Horizons",
+    "Dystopian"
+  ];
+  const slider = document.querySelector(".slider")
+  let activeSlide = 0;
+  document.addEventListener("click", function () {
+
+    const currentSlide = slider.querySelectorAll(".slide:not(.exiting)")
+
+    const slideTheme = activeSlide % 2 ? "dark" : "light"
+
+    activeSlide = (activeSlide + 1) % sliderContent.length;
+    if (currentSlide) {
+      const existingImgs = currentSlide.querySelectorAll("img");
+      gsap.to(existingImgs, {
+        top: "0%",
+        duration: 1.5,
+        ease: "power4.inOut"
+      });
+      currentSlide.classList.add("exiting");
+    }
+    const newSlide = document.createElement("div");
+    newSlide.classList.add("slide")
+    newSlide.classList.add(slideTheme)
+    newSlide.style.clipPath = "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)"
+
+    const newSlideImg1 = document.createElement("div")
+    newSlideImg1.className = "slide-img slide-img-1"
+    const img1 = document.createElement("img")
+    img1.src = `./images/slider-${activeSlide + 1}-1.jpg`
+    img1.style.top = "100%"
+    newSlideImg1.appendChild(img1)
+    newSlide.appendChild(newSlideImg1)
+
+    const newSlideContent = document.createElement("div")
+    newSlideContent.classList.add("slide-content")
+    newSlideContent.innerHTML = `<h1 style="scale: 1.5">${sliderContent[activeSlide]}</h1>`
+    newSlide.appendChild(newSlideContent)
+
+    const newSlideImg2 = document.createElement("div")
+    newSlideImg2.className = "slide-img slide-img-2"
+    const img2 = document.createElement("img")
+    img2.src = `./images/slider-${activeSlide + 1}-2.jpg`
+    img2.style.top = "100%"
+    newSlideImg2.appendChild(img2)
+    newSlide.appendChild(newSlideImg2)
+    slider.appendChild(newSlide)
+
+    gsap.to(newSlide, {
+      clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%",
+      duration: 1.5,
+      ease: "power4.inOut",
+      onStart: () => {
+        gsap.to([img1, img2], {
+          top: "50%",
+          duration: 1.5,
+          ease: "power4.inOut"
+        })
+      },
+      onComplete: () => {
+        removeExtraSlide(slider)
+      }
+    });
+    gsap.to(".slide-content h1", {
+      scale: 1,
+      duration: 1.5,
+      ease: "power4.inOut"
+    })
+
+  });
+  function removeExtraSlide(container) {
+    while (container.children.lenght > 5) {
+      container.removeChild(container.firstChild)
+    }
+  }
+})
 
 //custom mouse
 let cusor = $(".cusor");
@@ -156,3 +239,97 @@ $(window).on("mousemove", function (e) {
 //     handleLeftClick();
 //   }
 // })
+
+// let tl2 = gsap.timeline();
+// tl2.to("#scrollingText", {
+//   x: 1000,
+//   duration: 18,
+//   repeat: -1,
+//   ease: 'linear'
+// })
+// let tl = gsap.timeline();
+// tl.to('#scrollingText', {
+//   xPercent: 15,
+//   scrollTrigger: {
+//     trigger: "#scrollingText",
+//     scrub: 1
+//   }
+// })
+// function showTime() {
+//   var date = new Date();
+//   var h = date.getHours(); // 0 - 23
+//   var m = date.getMinutes(); // 0 - 59
+//   // var s = date.getSeconds(); // 0 - 59
+//   var session = "AM";
+
+//   if (h == 0) {
+//     h = 12;
+//   }
+
+//   if (h > 12) {
+//     h = h - 12;
+//     session = "PM";
+//   }
+
+//   h = (h < 10) ? "0" + h : h;
+//   m = (m < 10) ? "0" + m : m;
+//   // s = (s < 10) ? "0" + s : s;
+
+//   var time = h + ":" + m + " " + session;
+//   document.getElementById("MyClockDisplay").innerText = time;
+//   document.getElementById("MyClockDisplay").textContent = time;
+
+//   setTimeout(showTime, 1000);
+
+// }
+
+// showTime();
+//loading
+function initLoading() {
+  let loadedCount = 0,
+    imgs = document.querySelectorAll("img").length,
+    container = document.querySelector("body");
+  let imgLoaded = imagesLoaded(container);
+  imgLoaded
+    .on("progress", (instance) => {
+      loadedCount++;
+      percent = Math.floor((loadedCount / imgs) * 100);
+      handleLoading(percent);
+    })
+    .on("always", (instance) => {
+      console.log("always");
+    })
+    .on("fail", (instance) => {
+      console.log("fail");
+    })
+    .on("done", (instance) => {
+      console.log("done");
+      hideLoading();
+    });
+}
+function handleLoading(percent) {
+  const textPerCenter = document.querySelector(".loading__percent");
+
+  textPerCenter.innerHTML = `${percent}%`;
+}
+function hideLoading() {
+  const loading = document.querySelector(".loading"),
+    body = document.querySelector("body");
+  loading.classList.add("--hide");
+  body.classList.remove("--disable-scroll");
+}
+initLoading();
+//changeHeader
+function changeHeader() {
+  const header = document.querySelector(".header");
+  document.addEventListener("scroll", function () {
+    let scrolY = window.scrollY;
+    if (scrolY > 500) {
+      header.classList.add("--bg-header");
+    } else {
+      header.classList.remove("--bg-header");
+    }
+  });
+}
+changeHeader();
+
