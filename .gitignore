@@ -1,5 +1,1 @@
-node_modules/
-.sass-cache
-.vscode
-gruntfile.js
-js/libs
+node_modules
