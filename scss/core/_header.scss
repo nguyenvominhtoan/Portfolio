@@ -1,0 +1,19 @@
+.header {
+    height: 80px;
+    padding: 15px;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 18px;
+    }
+
+    .btnmenu {
+        display: flex;
+
+        p {
+            margin-right: 3px;
+        }
+    }
+}

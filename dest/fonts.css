@@ -1,35 +1,16 @@
 @font-face {
   font-family: "t1";
-  src: url("../fonts/TTHovesProTrial-Md.woff2") format("woff2"),
-    url("../fonts/TTHovesProTrial-Md.woff") format("woff");
-  font-weight: 500;
+  src: url("../fonts/SuisseIntl-Bold.woff2") format("woff2"),
+    url("../fonts/SuisseIntl-Bold.woff2") format("woff");
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
   font-family: "t2";
-  src: url("../fonts/TTHovesProTrialVariable.woff2") format("woff2"),
-    url("../fonts/TTHovesProTrialVariable.woff") format("woff");
+  src: url("../fonts/SuisseIntl-Book.woff2") format("woff2"),
+    url("../fonts/SuisseIntl-Book.woff2") format("woff");
   font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "t3";
-  src: url("../fonts/TTHovesProTrial-Rg.woff2") format("woff2"),
-    url("../fonts/TTHovesProTrial-Rg.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "t4";
-  src: url("../fonts/TTHovesProTrial-Th.woff2") format("woff2"),
-    url("../fonts/TTHovesProTrial-Th.woff") format("woff");
-  font-weight: 100;
   font-style: normal;
   font-display: swap;
 }
